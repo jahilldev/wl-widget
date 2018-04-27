@@ -3,8 +3,17 @@ import { h, render } from 'preact';
 
 /* -----------------------------------
  *
- * Test
+ * Polyfill
  *
  * -------------------------------- */
 
-render(<div>Oh Hai!</div>, document.querySelector('#root'));
+import 'isomorphic-fetch';
+import 'promise/polyfill';
+
+
+/* -----------------------------------
+ *
+ * Bootstrap
+ *
+ * -------------------------------- */
+
