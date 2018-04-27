@@ -1,6 +1,10 @@
 {
-   "extends": ["tslint:recommended"],
+   "extends": [
+      "tslint:recommended",
+      "tslint-react"
+    ],
    "rules": {
+      "jsx-no-multiline-js": false,
       "align": [
          true,
          "parameters",

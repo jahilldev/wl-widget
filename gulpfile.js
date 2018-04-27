@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const sequence = require('gulp-sequence');
 const util = require('gulp-util');
-const server = require('browser-sync').create();
 const error = require('./tasks/error');
 const config = require('./tasks/config');
 
@@ -19,25 +18,21 @@ function task(task, attr) {
 
 /* -----------------------------------
  *
- * Server
+ * JS
  *
  * -------------------------------- */
 
-gulp.task('server:start', task('server-start', server));
-gulp.task('server:reload', task('server-reload', server));
+gulp.task('js:clean', task('clean', 'js'));
+gulp.task('js:client', task('js-client'));
 
 
 /* -----------------------------------
  *
- * JS
+ * CSS
  *
- * 
  * -------------------------------- */
 
-gulp.task('js:clean', task('clean', 'js'));
-gulp.task('js:core', task('js-core'));
-gulp.task('js:lint', task('js-lint'));
-gulp.task('js:demo', task('js-demo'));
+gulp.task('css:clean', task('clean', 'css'));
 
 
 /* -----------------------------------
@@ -51,14 +46,36 @@ gulp.task('watch', task('watch'));
 
 /* -----------------------------------
  *
+ * Pull Request
+ *
+ * -------------------------------- */
+
+gulp.task('pull-request', sequence(
+   ['js:clean', 'css:clean'],
+   ['js:client']
+))
+
+
+/* -----------------------------------
+ *
+ * Production
+ *
+ * -------------------------------- */
+
+gulp.task('production', sequence(
+   ['js:clean', 'css:clean'],
+   ['js:client']
+));
+
+
+/* -----------------------------------
+ *
  * Default
  *
  * -------------------------------- */
 
 gulp.task('default', sequence(
-   ['js:clean'],
-   ['js:core', 'js:lint'],
-   'js:demo',
-   'server:start',
+   ['js:clean', 'css:clean'],
+   ['js:client'],
    'watch'
 ));
