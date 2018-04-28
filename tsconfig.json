@@ -15,7 +15,7 @@
       "experimentalDecorators": true,
       "importHelpers": true,
       "jsx": "react",
-      "jsxFactory": "h",
+      "jsxFactory": "Preact.h",
       "lib": [
          "dom",
          "es5",

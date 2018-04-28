@@ -1,4 +1,4 @@
-import { h, render } from 'preact';
+import Preact, { render } from 'preact';
 import { Provider, connect } from 'preact-redux';
 
 
@@ -14,7 +14,8 @@ import 'promise/polyfill';
 
 /* -----------------------------------
  *
- * Bootstrap
+ * Test
  *
  * -------------------------------- */
 
+render(<h1>Hello</h1>, document.getElementById('root'));
