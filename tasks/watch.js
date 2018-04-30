@@ -41,16 +41,6 @@ module.exports = (config, gulp) => {
          )(error);
    
       });
-   
-    //   gulp.watch([
-    //      config.path.src + '**/*.scss'
-    //   ], () => {
-   
-    //      sequence(
-    //         ['css:lint', 'css:build']
-    //      )(error);
-   
-    //   });
 
    };
 
