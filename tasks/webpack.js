@@ -86,7 +86,7 @@ module.exports = {
                   loader: 'style-loader'
                },
                {
-                  loader: 'css-loader?modules&localIdentName=[local]_[hash:base64:12]'
+                  loader: 'css-loader?modules&localIdentName=[local]_[hash:base64:6]'
                },
                {
                   loader: 'sass-loader?sourceMap'
