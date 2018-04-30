@@ -1,5 +1,6 @@
-import { createStore } from 'redux';
-import { IAccount } from './account';
+import { Dispatch, Middleware, createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { IAccount } from './api/account';
 import { reducers } from './reducers';
 
 
@@ -10,8 +11,10 @@ import { reducers } from './reducers';
  * -------------------------------- */
 
 export interface IState {
-   dispatch?: (a: any) => void;
-   account: IAccount;
+   dispatch?: Dispatch<any, any>;
+   api: {
+      account: IAccount;
+   };
 }
 
 
@@ -21,9 +24,18 @@ export interface IState {
  *
  * -------------------------------- */
 
-function store() {
+function store(state?: any) {
 
-   return createStore(reducers);
+   const list: Middleware[] = [
+      thunk
+   ];
+
+   const create = compose(
+      applyMiddleware(...list),
+      (f: any) => f
+   )(createStore);
+
+   return create(reducers, state);
 
 }
 

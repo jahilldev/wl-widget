@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
-import { reducer as api } from './api/reducers';
+import { reducer as account } from './account';
 
 
 /* -----------------------------------
  *
- * Reducers
+ * API Reducer
  *
  * -------------------------------- */
 
-const reducers = combineReducers({
+const reducer = combineReducers({
 
-   api
+   account
 
 });
 
@@ -21,4 +21,4 @@ const reducers = combineReducers({
  *
  * -------------------------------- */
 
-export { reducers };
+export { reducer };

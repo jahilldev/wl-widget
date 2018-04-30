@@ -1,17 +1,17 @@
 import Preact, { Component } from 'preact';
+import { connect } from 'preact-redux';
+import { IState } from '../../redux/store';
 import * as utils from '../../utility';
 
 
 /* -----------------------------------
  *
- * IState
+ * IProps
  *
  * -------------------------------- */
 
-interface IState {
-   child: {
-      [index: string]: typeof Component;
-   };
+interface IProps {
+   dispatch?: any;
 }
 
 
@@ -21,9 +21,20 @@ interface IState {
  *
  * -------------------------------- */
 
-const imports = {
-   TileBlock: import('../../components/tiles/block')
-};
+import { TileBlock } from '../../components/tiles';
+
+
+/* -----------------------------------
+ *
+ * Connect
+ *
+ * -------------------------------- */
+
+@(connect(
+   (state: IState) => ({
+      dispatch: state.dispatch
+   })
+) as any)
 
 
 /* -----------------------------------
@@ -32,36 +43,19 @@ const imports = {
  *
  * -------------------------------- */
 
-class TopOffers extends Component<{}, {}> {
+class TopOffers extends Component<IProps, {}> {
 
 
-   public state: IState = {
-      child: null
-   };
-
-
-   public async componentWillMount() {
-
-      const child = await utils.imports(imports);
-
-      this.setState({
-         child
-      });
-
-   }
+   public props: IProps;
 
 
    public render() {
 
-      const { child } = this.state;
-
-      if (child) {
-
-         return (
-            <child.TileBlock />
-         );
-
-      }
+      return (
+         <div className="container">
+            HI!
+         </div>
+      );
 
    }
 

@@ -10,7 +10,7 @@ import { SET } from './model';
  *
  * -------------------------------- */
 
-function account(state = Account, action: IAction) {
+function reducer(state = Account, action: IAction) {
 
 
    switch (action.type) {
@@ -44,4 +44,4 @@ function account(state = Account, action: IAction) {
  *
  * -------------------------------- */
 
-export { account };
+export { reducer };
