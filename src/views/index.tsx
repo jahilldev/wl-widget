@@ -3,11 +3,22 @@ import Preact from 'preact';
 
 /* -----------------------------------
  *
- * Views
+ * IList
  *
  * -------------------------------- */
 
-const list = {
+interface IList {
+   [index: string]: Promise<any>;
+}
+
+
+/* -----------------------------------
+ *
+ * List
+ *
+ * -------------------------------- */
+
+const list: IList = {
    TopOffers: import('./topoffers')
 };
 
@@ -20,22 +31,11 @@ const list = {
 
 const views = async (key: string) => {
 
-   /** todo */
-
-   try {
-
-      const tpl = await list.TopOffers;
-
-      console.log('views.tpl', tpl);
-
-   } catch (err) {
-
-      console.log('ERROR:', err);
-
-   }
+   const view = await list[key];
+   const Item = view[key] as any;
 
    return (
-      <h1>Test</h1>
+      <Item />
    );
 
 };

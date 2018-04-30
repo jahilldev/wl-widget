@@ -27,7 +27,7 @@ const RELEASE = process.argv.includes('--release');
 
 module.exports = (config, gulp) => {
 
-   const entry = `${config.path.src}index.tsx`;
+   const entry = `${config.path.src}index.ts`;
 
    return () => {
 

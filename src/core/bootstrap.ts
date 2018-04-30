@@ -1,3 +1,4 @@
+import { access } from './dependency';
 import { Application } from './application';
 import { IConfig } from '../config';
 
@@ -10,7 +11,8 @@ import { IConfig } from '../config';
 
 const bootstrap = async (config: IConfig) => {
 
-   const app = new Application(config);
+   const document = access('global.document');
+   const app = new Application(document, config);
 
    await app.validate();
 

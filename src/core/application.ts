@@ -1,3 +1,4 @@
+import { inject } from './dependency';
 import { render } from 'preact';
 import { Provider, connect } from 'preact-redux';
 import { createStore } from 'redux';
@@ -16,16 +17,15 @@ import { views } from '../views';
 class Application {
 
 
+   private document: Document;
    private config: IConfig;
    private account: IAccount;
-
-
-   private root: HTMLElement;
    private store: any;
 
 
-   public constructor(config: IConfig) {
+   public constructor(document: Document, config: IConfig) {
 
+      this.document = document;
       this.config = config;
       this.store = createStore(reducers);
 
@@ -46,14 +46,12 @@ class Application {
 
    public async render() {
 
-      const { account } = this;
+      const { document, account } = this;
 
+      const root = document.getElementById('root');
       const output = await views(account.view) as any;
 
-      render(
-         output,
-         document.getElementById('root')
-      );
+      render(output, root);
 
    }
 

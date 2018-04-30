@@ -1,4 +1,5 @@
 import Preact, { Component } from 'preact';
+import { inject } from '../../core/dependency';
 
 
 /* -----------------------------------
@@ -8,6 +9,10 @@ import Preact, { Component } from 'preact';
  * -------------------------------- */
 
 class TopOffers extends Component<{}, {}> {
+
+
+   @inject('global.document')
+   private document: Document;
 
 
    public render() {
@@ -21,3 +26,11 @@ class TopOffers extends Component<{}, {}> {
 
 }
 
+
+/* -----------------------------------
+ *
+ * TopOffers
+ *
+ * -------------------------------- */
+
+export { TopOffers };
