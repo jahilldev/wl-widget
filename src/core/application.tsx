@@ -41,7 +41,7 @@ class Application {
 
       const data: IStore = store.getState();
 
-      console.log('store:', data);
+      console.log('Application.dispatch:', data);
 
       // store.dispatch(getEnvironments());
 
