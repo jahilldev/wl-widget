@@ -1,4 +1,27 @@
 import Preact, { Component } from 'preact';
+import * as utils from '../../utility';
+
+
+/* -----------------------------------
+ *
+ * IState
+ *
+ * -------------------------------- */
+
+interface IState {
+   child: any;
+}
+
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+const imports = {
+   TileBlock: import('../../components/tiles/block')
+};
 
 
 /* -----------------------------------
@@ -10,10 +33,36 @@ import Preact, { Component } from 'preact';
 class TopOffers extends Component<{}, {}> {
 
 
+   public state: IState = {
+      child: null
+   };
+
+
+   public async componentWillMount() {
+
+      const child = await utils.imports(imports);
+
+      this.setState({
+         child
+      });
+
+   }
+
+
    public render() {
 
+      const { child } = this.state;
+
+      if (!child) {
+
+         return (
+            <h1>Loading</h1>
+         );
+
+      }
+
       return (
-         <h1>TopOffers</h1>
+         <child.TileBlock />
       );
 
    }

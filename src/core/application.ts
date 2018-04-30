@@ -23,7 +23,6 @@ class Application {
       this.config = config;
       this.view = null;
       this.store = createStore();
-      this.store = null;
 
    }
 
