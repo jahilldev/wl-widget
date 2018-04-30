@@ -1,3 +1,4 @@
+import { render } from 'preact';
 import { access } from './dependency';
 import { Application } from './application';
 import { IConfig } from '../config';
@@ -11,12 +12,16 @@ import { IConfig } from '../config';
 
 const bootstrap = async (config: IConfig) => {
 
-   const document = access('global.document');
-   const app = new Application(document, config);
+   // const document = access('global.document');
+   const root = document.getElementById(config.root || 'root');
+
+   const app = new Application(config);
 
    await app.validate();
 
-   app.render();
+   const node = await app.output();
+
+   render(node, root);
 
 };
 

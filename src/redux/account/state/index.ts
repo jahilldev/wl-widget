@@ -1,24 +1,22 @@
-import { combineReducers } from 'redux';
-import { account } from './account';
 
 
 /* -----------------------------------
  *
- * Reducers
+ * IAccount
  *
  * -------------------------------- */
 
-const reducers = combineReducers({
-
-   account
-
-});
+export interface IAccount {
+   view: string;
+}
 
 
 /* -----------------------------------
  *
- * Export
+ * Account
  *
  * -------------------------------- */
 
-export { reducers };
+export const Account: IAccount = {
+   view: null
+};

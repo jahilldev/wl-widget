@@ -28,10 +28,10 @@
     "webpack-stream": "4.0.0"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "preact": "^8.2.7",
-    "preact-redux": "^2.0.3",
-    "promise": "^8.0.1",
-    "redux": "^4.0.0"
+    "preact": "8.2.7",
+    "preact-redux": "2.0.3",
+    "promise": "8.0.1",
+    "redux": "4.0.0",
+    "whatwg-fetch": "2.0.4"
   }
 }

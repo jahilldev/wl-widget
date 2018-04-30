@@ -1,10 +1,6 @@
 import { inject } from './dependency';
-import { render } from 'preact';
-import { Provider, connect } from 'preact-redux';
-import { createStore } from 'redux';
 import { IConfig } from '../config';
-import { IAccount } from '../account';
-import { reducers } from '../redux/reducers';
+import { createStore } from '../redux/store';
 import { views } from '../views';
 
 
@@ -17,17 +13,17 @@ import { views } from '../views';
 class Application {
 
 
-   private document: Document;
    private config: IConfig;
-   private account: IAccount;
+   private view: string;
    private store: any;
 
 
-   public constructor(document: Document, config: IConfig) {
+   public constructor(config: IConfig) {
 
-      this.document = document;
       this.config = config;
-      this.store = createStore(reducers);
+      this.view = null;
+      this.store = createStore();
+      this.store = null;
 
    }
 
@@ -35,23 +31,21 @@ class Application {
    public async validate() {
 
       // call api endpoint and
-      // set this.account property
+      // set this.view property
+      // then dispatch redux action
 
-      this.account = {
-         view: 'TopOffers'
-      };
+      this.view = 'TopOffers';
 
    }
 
 
-   public async render() {
+   public async output(): Promise<JSX.Element> {
 
-      const { document, account } = this;
+      const { store, view } = this;
 
-      const root = document.getElementById('root');
-      const output = await views(account.view) as any;
+      const output = await views(store, view);
 
-      render(output, root);
+      return output;
 
    }
 

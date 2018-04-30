@@ -17,6 +17,18 @@ const RELEASE = process.argv.includes('--release');
 
 /* -----------------------------------
  *
+ * Globals
+ *
+ * -------------------------------- */
+
+const GLOBALS = {
+   'process.env.NODE_ENV': !RELEASE ? '"development"' : '"production"',
+   __DEV__: DEBUG,
+ };
+
+
+/* -----------------------------------
+ *
  * Webpack
  *
  * -------------------------------- */
@@ -77,9 +89,14 @@ module.exports = {
          debug: DEBUG
       }),
 
-      // new PublicPathPlugin({
-      //    runtimePublicPath: 'window.__routes.cdn'
-      // }),
+      new webpack.DefinePlugin({ 
+         ...GLOBALS, 
+         'process.env.BROWSER': true 
+      }),
+
+      new PublicPathPlugin({
+         runtimePublicPath: 'window.__vcasset__'
+      }),
 
       new webpack.optimize.OccurrenceOrderPlugin(true),
 

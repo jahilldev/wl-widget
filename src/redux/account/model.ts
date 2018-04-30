@@ -1,24 +1,24 @@
-import { combineReducers } from 'redux';
-import { account } from './account';
 
 
 /* -----------------------------------
  *
- * Reducers
+ * Methods
  *
  * -------------------------------- */
 
-const reducers = combineReducers({
-
-   account
-
-});
+export const SET: string = 'account/SET';
 
 
 /* -----------------------------------
  *
- * Export
+ * IAction
  *
  * -------------------------------- */
 
-export { reducers };
+export interface IAction {
+   type: string;
+   payload?: {
+      data?: any;
+      message?: any;
+   };
+}

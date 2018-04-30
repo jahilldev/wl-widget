@@ -8,7 +8,7 @@ import { bootstrap } from './core/bootstrap';
  *
  * -------------------------------- */
 
-import 'isomorphic-fetch';
+import 'whatwg-fetch';
 import 'promise/polyfill';
 
 

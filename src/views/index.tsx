@@ -1,4 +1,5 @@
 import Preact from 'preact';
+import { Provider } from 'preact-redux';
 
 
 /* -----------------------------------
@@ -29,13 +30,15 @@ const list: IList = {
  *
  * -------------------------------- */
 
-const views = async (key: string) => {
+const views = async (store: any, key: string) => {
 
    const view = await list[key];
    const Item = view[key] as any;
 
    return (
-      <Item />
+      <Provider store={store}>
+         <Item />
+      </Provider>
    );
 
 };
