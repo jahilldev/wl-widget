@@ -53,17 +53,13 @@ class TopOffers extends Component<{}, {}> {
 
       const { child } = this.state;
 
-      if (!child) {
+      if (child) {
 
          return (
-            <h1>Loading</h1>
+            <child.TileBlock />
          );
 
       }
-
-      return (
-         <child.TileBlock />
-      );
 
    }
 
