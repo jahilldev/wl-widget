@@ -1,6 +1,6 @@
 import Preact, { Component } from 'preact';
 import { connect } from 'preact-redux';
-import { IState } from '../../redux/store';
+import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
 
 
@@ -31,7 +31,7 @@ import { TileBlock } from '../../components/tiles';
  * -------------------------------- */
 
 @(connect(
-   (state: IState) => ({
+   (state: IStore) => ({
       dispatch: state.dispatch
    })
 ) as any)
@@ -53,7 +53,7 @@ class TopOffers extends Component<IProps, {}> {
 
       return (
          <div className="container">
-            HI!
+            <h1>Top Offers</h1>
          </div>
       );
 

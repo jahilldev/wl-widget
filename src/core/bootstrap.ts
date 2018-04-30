@@ -12,16 +12,16 @@ import { IConfig } from '../config';
 
 const bootstrap = async (config: IConfig) => {
 
-   // const document = access('global.document');
+   const document = access('global.document');
    const root = document.getElementById(config.root || 'root');
 
    const app = new Application(config);
 
    await app.validate();
 
-   const node = await app.output();
+   app.dispatch();
 
-   render(node, root);
+   render(app.render(), root);
 
 };
 

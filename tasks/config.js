@@ -9,10 +9,8 @@ module.exports = {
 
    asset: {
       manifest: 'assets.json',
-      vendor: 'vendor.js',
       client: 'client.js',
-      styles: 'style.css',
-      fonts: 'fonts.css'
+      styles: 'style.css'
    },
 
    csproj: {

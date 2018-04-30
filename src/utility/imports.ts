@@ -17,9 +17,15 @@ interface IList<T> {
  *
  * -------------------------------- */
 
-const imports = async <T>(list: IList<T>) => {
+const imports = async <T>(list: IList<T>, key?: string) => {
 
-   const keys = Object.keys(list);
+   let keys = Object.keys(list);
+
+   if (key) {
+
+      keys = [key];
+
+   }
 
    const array = keys.map((k: string) => list[k]);
    const load = await Promise.all(array);
@@ -27,9 +33,9 @@ const imports = async <T>(list: IList<T>) => {
    const result = load.reduce(
       (acc: any, item: any, index) => {
 
-         const key = keys[index];
+         const k = keys[index];
 
-         acc[key] = item[key];
+         acc[k] = item[k];
 
          return acc;
 

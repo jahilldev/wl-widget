@@ -10,7 +10,7 @@ import { reducers } from './reducers';
  *
  * -------------------------------- */
 
-export interface IState {
+export interface IStore {
    dispatch?: Dispatch<any, any>;
    api: {
       account: IAccount;

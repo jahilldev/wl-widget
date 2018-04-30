@@ -1,5 +1,17 @@
-import Preact from 'preact';
+import Preact, { Component } from 'preact';
 import { Provider } from 'preact-redux';
+import * as utils from '../utility';
+
+
+/* -----------------------------------
+ *
+ * IState
+ *
+ * -------------------------------- */
+
+interface IState {
+   View: typeof Component;
+}
 
 
 /* -----------------------------------
@@ -26,22 +38,49 @@ const list: IList = {
 
 /* -----------------------------------
  *
- * Views
+ * Index
  *
  * -------------------------------- */
 
-const views = async (store: any, key: string) => {
+class Views extends Component<{}, IState> {
 
-   const view = await list[key];
-   const Item = view[key] as any;
 
-   return (
-      <Provider store={store}>
-         <Item />
-      </Provider>
-   );
+   public state: IState = {
+      View: null
+   };
 
-};
+
+   public async componentWillMount() {
+
+      const view = await utils.imports(list, 'TopOffers');
+
+      this.setState({
+         View: view.TopOffers
+      });
+
+   }
+
+
+   public render() {
+
+      const { View } = this.state;
+
+      if (!View) {
+
+         return (
+            <em>Loading..</em>
+         );
+
+      }
+
+      return (
+         <View />
+      );
+
+   }
+
+
+}
 
 
 /* -----------------------------------
@@ -50,4 +89,4 @@ const views = async (store: any, key: string) => {
  *
  * -------------------------------- */
 
-export { views };
+export { Views };

@@ -42,7 +42,7 @@ module.exports = {
    target: 'web',
 
    output: {
-      filename: !RELEASE ? '[name].js' : '[name].js',
+      filename: config.asset.client,
       chunkFilename: !RELEASE ? '[id].js' : '[id]-[chunkhash:8].js',
       jsonpFunction: '__VC__',
       publicPath: '/dist/'
