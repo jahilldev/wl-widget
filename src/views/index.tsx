@@ -77,17 +77,13 @@ class Views extends Component<IProps, IState> {
       const { view } = this.state;
       const Output = view;
 
-      if (!view) {
+      if (view) {
 
          return (
-            <em>Loading..</em>
+            <Output />
          );
 
       }
-
-      return (
-         <Output />
-      );
 
    }
 
