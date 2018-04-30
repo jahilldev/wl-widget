@@ -33,7 +33,7 @@ module.exports = {
       filename: !RELEASE ? '[name].js' : '[name].js',
       chunkFilename: !RELEASE ? '[id].js' : '[id]-[chunkhash:8].js',
       jsonpFunction: '__VC__',
-      publicPath: '/content/dist/'
+      publicPath: '/dist/'
    },
 
    resolve: {
@@ -41,8 +41,8 @@ module.exports = {
          'node_modules'
       ],
       extensions: [
-         '.tsx',
          '.ts',
+         '.tsx',
          '.js',
          '.json',
          '.scss'
@@ -52,7 +52,7 @@ module.exports = {
    module: {
       loaders: [
          {
-            test: /\.tsx$/,
+            test: /\.tsx?$/,
             enforce: 'pre',
             loader: 'tslint-loader',
             options: {
@@ -60,7 +60,7 @@ module.exports = {
             }
          },
          {
-            test: /\.tsx$/, 
+            test: /\.tsx?$/, 
             use: [
                {
                   loader: 'ts-loader'
