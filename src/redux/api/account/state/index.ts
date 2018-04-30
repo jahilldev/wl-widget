@@ -18,5 +18,6 @@ export interface IAccount {
  * -------------------------------- */
 
 export const Account: IAccount = {
-   view: null
+   view: 'TopOffers' // TEST ONLY
+   // view: null
 };

@@ -1,6 +1,20 @@
 import Preact, { Component } from 'preact';
-import { Provider } from 'preact-redux';
+import { connect, Provider } from 'preact-redux';
+import { IStore } from '../redux/store';
+import { IAccount } from '../redux/api';
 import * as utils from '../utility';
+import { list } from './list';
+
+
+/* -----------------------------------
+ *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps {
+   account?: IAccount;
+}
 
 
 /* -----------------------------------
@@ -10,30 +24,21 @@ import * as utils from '../utility';
  * -------------------------------- */
 
 interface IState {
-   View: typeof Component;
+   view: typeof Component;
 }
 
 
 /* -----------------------------------
  *
- * IList
+ * Connect
  *
  * -------------------------------- */
 
-interface IList {
-   [index: string]: Promise<any>;
-}
-
-
-/* -----------------------------------
- *
- * List
- *
- * -------------------------------- */
-
-const list: IList = {
-   TopOffers: import('./topoffers')
-};
+@(connect(
+   (state: IStore) => ({
+      account: state.api.account
+   })
+) as any)
 
 
 /* -----------------------------------
@@ -42,20 +47,26 @@ const list: IList = {
  *
  * -------------------------------- */
 
-class Views extends Component<{}, IState> {
+class Views extends Component<IProps, IState> {
+
+
+   public props: IProps;
 
 
    public state: IState = {
-      View: null
+      view: null
    };
 
 
    public async componentWillMount() {
 
-      const view = await utils.imports(list, 'TopOffers');
+      const { account } = this.props;
+      const { view } = account;
+
+      const result = await utils.imports(list, view);
 
       this.setState({
-         View: view.TopOffers
+         view: result[view]
       });
 
    }
@@ -63,9 +74,10 @@ class Views extends Component<{}, IState> {
 
    public render() {
 
-      const { View } = this.state;
+      const { view } = this.state;
+      const Output = view;
 
-      if (!View) {
+      if (!view) {
 
          return (
             <em>Loading..</em>
@@ -74,7 +86,7 @@ class Views extends Component<{}, IState> {
       }
 
       return (
-         <View />
+         <Output />
       );
 
    }
