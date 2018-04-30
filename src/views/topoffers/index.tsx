@@ -6,6 +6,15 @@ import * as utils from '../../utility';
 
 /* -----------------------------------
  *
+ * Style
+ *
+ * -------------------------------- */
+
+const style = require('./scss/index');
+
+
+/* -----------------------------------
+ *
  * IProps
  *
  * -------------------------------- */
@@ -52,8 +61,8 @@ class TopOffers extends Component<IProps, {}> {
    public render() {
 
       return (
-         <div className="container">
-            <h1>Top Offers</h1>
+         <div className={style.container}>
+            <h1 className={style.title}>Top Offers</h1>
          </div>
       );
 

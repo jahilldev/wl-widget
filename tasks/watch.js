@@ -32,7 +32,8 @@ module.exports = (config, gulp) => {
       });
    
       gulp.watch([
-          config.path.src + '**/*.ts*'
+         config.path.src + '**/*.ts*',
+         config.path.src + '**/*.scss*'
       ], () => {
    
          sequence(

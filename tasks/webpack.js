@@ -78,6 +78,20 @@ module.exports = {
                   loader: 'ts-loader'
                }
             ]
+         },
+         {
+            test: /\.scss$/,
+            use: [
+               {
+                  loader: 'style-loader'
+               },
+               {
+                  loader: 'css-loader?modules&localIdentName=[local]_[hash:base64:12]'
+               },
+               {
+                  loader: 'sass-loader?sourceMap'
+               }
+            ]
          }
       ]
    },
