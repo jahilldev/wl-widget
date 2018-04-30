@@ -9,7 +9,9 @@ import * as utils from '../../utility';
  * -------------------------------- */
 
 interface IState {
-   child: any;
+   child: {
+      [index: string]: typeof Component;
+   };
 }
 
 
