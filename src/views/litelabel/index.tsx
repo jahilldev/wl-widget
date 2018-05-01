@@ -1,6 +1,6 @@
-import Preact, { Component } from 'preact';
-import { connect } from 'preact-redux';
-import { Router } from 'preact-router';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
 
@@ -63,10 +63,10 @@ class LiteLabel extends Component<IProps, {}> {
    public render() {
 
       return (
-         <Router>
-            <Home path="/" />
-            <Merchant path="/:slug" />
-         </Router>
+         <div className={style.wrapper}>
+            <Route path="/" component={Home} />
+            <Route path="/:slug" component={Merchant} />
+         </div>
       );
 
    }

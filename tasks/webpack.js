@@ -49,6 +49,10 @@ module.exports = {
    },
 
    resolve: {
+      alias: {
+			'react': 'preact-compat',
+         'react-dom': 'preact-compat'
+      },
       modules: [
          'node_modules'
       ],
@@ -116,30 +120,17 @@ module.exports = {
 
       ...RELEASE ? [
 
-         new webpack.optimize.UglifyJsPlugin({
-            mangle: true,
-            comments: false,
-            sourceMap: false,
-            compress: {
-               unused: true,
-               dead_code: true,
-               screw_ie8: true,
-               warnings: false,
-               drop_console: true,
-               drop_debugger: true,
-               conditionals: true,
-               evaluate: true,
-               sequences: true,
-               booleans: true,
-               passes: 1
-            }
-         })
+         new webpack.optimize.UglifyJsPlugin(
+            config.uglify
+         )
 
       ] : [
 
-         // No emit errors
-         // https://webpack.js.org/plugins/no-emit-on-errors-plugin/
-         new webpack.NoEmitOnErrorsPlugin()
+         new webpack.NoEmitOnErrorsPlugin(),
+
+         new webpack.optimize.UglifyJsPlugin(
+            config.uglify
+         )
 
       ]
 

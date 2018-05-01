@@ -1,4 +1,15 @@
 ﻿
+
+/* -----------------------------------
+ *
+ * Flags
+ *
+ * -------------------------------- */
+
+const DEBUG = process.argv.includes('--debug');
+const RELEASE = process.argv.includes('--release');
+
+
 /* -----------------------------------
  *
  * Config
@@ -34,10 +45,21 @@ module.exports = {
    },
 
    uglify: {
+      mangle: RELEASE,
+      comments: false,
+      sourceMap: false,
       compress: {
-         dead_code: true,
          unused: true,
-         drop_console: true
+         dead_code: RELEASE,
+         screw_ie8: true,
+         warnings: false,
+         drop_console: RELEASE,
+         drop_debugger: RELEASE,
+         conditionals: true,
+         evaluate: true,
+         sequences: true,
+         booleans: true,
+         passes: 1
       }
    }
 

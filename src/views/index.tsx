@@ -1,5 +1,6 @@
-import Preact, { Component } from 'preact';
-import { connect, Provider } from 'preact-redux';
+import React, { Component } from 'react';
+import { connect, Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { IStore } from '../redux/store';
 import { IAccount } from '../redux/api';
 import * as utils from '../utility';
@@ -75,12 +76,14 @@ class Views extends Component<IProps, IState> {
    public render() {
 
       const { view } = this.state;
-      const Output = view;
+      const Output = view as typeof Component;
 
       if (view) {
 
          return (
-            <Output />
+            <BrowserRouter>
+               <Output />
+            </BrowserRouter>
          );
 
       }

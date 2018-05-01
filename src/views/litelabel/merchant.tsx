@@ -1,6 +1,4 @@
-import Preact, { Component } from 'preact';
-import { connect } from 'preact-redux';
-import { Link } from 'preact-router';
+import React, { Component } from 'react';
 import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
 
@@ -30,7 +28,6 @@ class Merchant extends Component<{}, {}> {
             <h1 className={style.title}>
                Lite Label: Merchant
             </h1>
-            <Link href="/">Home</Link>
          </div>
       );
 

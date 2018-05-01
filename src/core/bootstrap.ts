@@ -1,4 +1,4 @@
-import { render } from 'preact';
+import { render } from 'react-dom';
 import { access } from './dependency';
 import { Application } from './application';
 import { IConfig } from '../config';

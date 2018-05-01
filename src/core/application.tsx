@@ -1,5 +1,5 @@
-import Preact from 'preact';
-import { Provider } from 'preact-redux';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { Store } from 'redux';
 import { IConfig } from '../config';
 import { IStore, createStore } from '../redux/store';
@@ -51,10 +51,11 @@ class Application {
    public render() {
 
       const { store } = this;
+      const Output = Views as typeof Component;
 
       return (
          <Provider store={store}>
-            <Views />
+            <Output />
          </Provider>
       );
 

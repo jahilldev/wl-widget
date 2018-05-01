@@ -1,4 +1,4 @@
-import Preact, { Component } from 'preact';
+import React, { Component } from 'react';
 
 
 /* -----------------------------------
@@ -13,7 +13,9 @@ class TileBlock extends Component<{}, {}> {
    public render() {
 
       return (
-         <div>Tile: Block</div>
+         <div className="test">
+            Tile: Block
+         </div>
       );
 
    }

@@ -1,5 +1,5 @@
-import Preact, { Component } from 'preact';
-import { connect } from 'preact-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
 
