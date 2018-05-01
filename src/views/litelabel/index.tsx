@@ -27,11 +27,12 @@ interface IProps {
 
 /* -----------------------------------
  *
- * Components
+ * Views
  *
  * -------------------------------- */
 
-import { TileBlock } from '../../components/tiles';
+import { Home } from './home';
+import { Merchant } from './merchant';
 
 
 /* -----------------------------------
@@ -62,9 +63,10 @@ class LiteLabel extends Component<IProps, {}> {
    public render() {
 
       return (
-         <div className={style.container}>
-            <h1 className={style.title}>Lite Label</h1>
-         </div>
+         <Router>
+            <Home path="/" />
+            <Merchant path="/:slug" />
+         </Router>
       );
 
    }
@@ -75,7 +77,7 @@ class LiteLabel extends Component<IProps, {}> {
 
 /* -----------------------------------
  *
- * LiteLabel
+ * Export
  *
  * -------------------------------- */
 
