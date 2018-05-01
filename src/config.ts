@@ -7,6 +7,8 @@
  * -------------------------------- */
 
 export interface IConfig {
-   root: string;
    apiKey: string;
+   route: string;
+   root?: string;
+   cdn: string;
 }

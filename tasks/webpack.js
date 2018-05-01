@@ -109,7 +109,7 @@ module.exports = {
       }),
 
       new PublicPathPlugin({
-         runtimePublicPath: 'window.__vcasset__'
+         runtimePublicPath: 'window.__vcconf__.cdn'
       }),
 
       new webpack.optimize.OccurrenceOrderPlugin(true),

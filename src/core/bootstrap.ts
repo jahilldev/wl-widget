@@ -10,9 +10,11 @@ import { IConfig } from '../config';
  *
  * -------------------------------- */
 
-const bootstrap = async (config: IConfig) => {
+const bootstrap = async () => {
 
-   const document = access('global.document');
+   const document: Document = access('global.document');
+   const config: IConfig = access('global.config');
+
    const root = document.getElementById(config.root || 'root');
 
    const app = new Application(config);

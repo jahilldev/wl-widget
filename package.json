@@ -9,6 +9,7 @@
   "author": "IDL",
   "license": "ISC",
   "devDependencies": {
+    "@types/history": "^4.6.2",
     "@types/node": "9.4.6",
     "css-loader": "^0.28.11",
     "del": "3.0.0",
@@ -32,7 +33,9 @@
     "webpack-stream": "4.0.0"
   },
   "dependencies": {
+    "history": "^4.7.2",
     "preact": "8.2.7",
+    "preact-async-route": "^2.1.1",
     "preact-redux": "2.0.3",
     "preact-router": "^2.6.0",
     "promise": "8.0.1",

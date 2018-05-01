@@ -1,6 +1,7 @@
 import Preact, { Component } from 'preact';
 import { connect } from 'preact-redux';
-import { Router } from 'preact-router';
+import { inject } from '../../core/dependency';
+import { IConfig } from '../../config';
 import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
 
@@ -23,6 +24,15 @@ const style = require('./scss/index');
 interface IProps {
    dispatch?: any;
 }
+
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import { Router } from '../../components';
 
 
 /* -----------------------------------
@@ -57,6 +67,10 @@ import { Merchant } from './merchant';
 class LiteLabel extends Component<IProps, {}> {
 
 
+   @inject('global.config')
+   private config: IConfig;
+
+
    public props: IProps;
 
 
@@ -64,8 +78,8 @@ class LiteLabel extends Component<IProps, {}> {
 
       return (
          <Router>
-            <Home path="/" />
-            <Merchant path="/:slug" />
+            <Home path={utils.route('/')} />
+            <Merchant path={utils.route('/:slug')} />
          </Router>
       );
 
