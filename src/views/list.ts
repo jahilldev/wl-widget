@@ -18,6 +18,7 @@ interface IList {
  * -------------------------------- */
 
 const list: IList = {
+   LiteLabel: import('./litelabel'),
    TopOffers: import('./topoffers')
 };
 
