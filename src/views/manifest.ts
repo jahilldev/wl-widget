@@ -2,11 +2,11 @@
 
 /* -----------------------------------
  *
- * IList
+ * IManifest
  *
  * -------------------------------- */
 
-interface IList {
+interface IManifest {
    [index: string]: Promise<any>;
 }
 
@@ -17,7 +17,7 @@ interface IList {
  *
  * -------------------------------- */
 
-const list: IList = {
+const manifest: IManifest = {
    LiteLabel: import('./litelabel'),
    TopOffers: import('./topoffers')
 };
@@ -29,4 +29,4 @@ const list: IList = {
  *
  * -------------------------------- */
 
-export { list };
+export { manifest };

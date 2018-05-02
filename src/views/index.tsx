@@ -3,7 +3,7 @@ import { connect, Provider } from 'preact-redux';
 import { IStore } from '../redux/store';
 import { IAccount } from '../redux/api';
 import * as utils from '../utility';
-import { list } from './list';
+import { manifest } from './manifest';
 
 
 /* -----------------------------------
@@ -24,7 +24,7 @@ interface IProps {
  * -------------------------------- */
 
 interface IState {
-   view: typeof Component;
+   View: typeof Component;
 }
 
 
@@ -54,7 +54,7 @@ class Views extends Component<IProps, IState> {
 
 
    public state: IState = {
-      view: null
+      View: null
    };
 
 
@@ -63,10 +63,10 @@ class Views extends Component<IProps, IState> {
       const { account } = this.props;
       const { view } = account;
 
-      const result = await utils.imports(list, view);
+      const result = await utils.imports(manifest, view);
 
       this.setState({
-         view: result[view]
+         View: result[view]
       });
 
    }
@@ -74,13 +74,12 @@ class Views extends Component<IProps, IState> {
 
    public render() {
 
-      const { view } = this.state;
-      const Output = view;
+      const { View } = this.state;
 
-      if (view) {
+      if (View) {
 
          return (
-            <Output />
+            <View />
          );
 
       }
