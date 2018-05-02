@@ -6,7 +6,7 @@
  *
  * -------------------------------- */
 
-export const SET: string = 'api/account/SET';
+export const SET_LOADING: string = 'views/litelabel/home/SET_LOADING';
 
 
 /* -----------------------------------

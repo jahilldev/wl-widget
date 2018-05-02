@@ -2,23 +2,21 @@
 
 /* -----------------------------------
  *
- * Methods
+ * IHome
  *
  * -------------------------------- */
 
-export const SET: string = 'api/account/SET';
+export interface IHome {
+   loading: boolean;
+}
 
 
 /* -----------------------------------
  *
- * IAction
+ * Home
  *
  * -------------------------------- */
 
-export interface IAction {
-   type: string;
-   payload?: {
-      data?: any;
-      message?: any;
-   };
-}
+export const Home: IHome = {
+   loading: true
+};

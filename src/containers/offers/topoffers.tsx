@@ -1,4 +1,7 @@
 import Preact, { Component } from 'preact';
+import { Dispatch } from 'redux';
+import { connect } from 'preact-redux';
+import { IStore } from '../../redux/store';
 
 
 /* -----------------------------------
@@ -20,6 +23,7 @@ interface IProps {
    offerTypes: string;
    countryCode: string;
    pageSize: number;
+   dispatch?: Dispatch<any, any>;
 }
 
 
@@ -45,6 +49,8 @@ class TopOffers extends Component<IProps, {}> {
 
 
    public componentDidMount() {
+
+      const { dispatch } = this.props;
 
       console.log('TopOffers.componentDidMount');
 
