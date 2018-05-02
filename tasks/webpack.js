@@ -23,7 +23,7 @@ const RELEASE = process.argv.includes('--release');
 
 const GLOBALS = {
    'process.env.NODE_ENV': !RELEASE ? '"development"' : '"production"',
-   'window.__CDN__': `'${config.path.cdn}'`,
+   __API__: `'${config.path.api}'`,
    __DEV__: DEBUG,
  };
 
@@ -46,7 +46,7 @@ module.exports = {
       filename: config.asset.client,
       chunkFilename: !RELEASE ? '[id].js' : '[id]-[chunkhash:8].js',
       jsonpFunction: '__VC__',
-      publicPath: '/dist/'
+      publicPath: !RELEASE ? '/dist/' : config.path.cdn
    },
 
    resolve: {
@@ -107,10 +107,6 @@ module.exports = {
       new webpack.DefinePlugin({ 
          ...GLOBALS, 
          'process.env.BROWSER': true
-      }),
-
-      new PublicPathPlugin({
-         runtimePublicPath: 'window.__CDN__'
       }),
 
       new webpack.optimize.OccurrenceOrderPlugin(true),

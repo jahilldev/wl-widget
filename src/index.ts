@@ -20,7 +20,7 @@ import 'promise/polyfill';
 
 register('global.window', window);
 register('global.document', document);
-register('global.config', window.__vcconf__);
+register('global.config', window.__config);
 
 
 /* -----------------------------------
@@ -29,6 +29,6 @@ register('global.config', window.__vcconf__);
  *
  * -------------------------------- */
 
-console.log(window.__CDN__);
+console.log(__API__);
 
 bootstrap();

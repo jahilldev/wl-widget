@@ -3,16 +3,17 @@ import { IConfig } from './config';
 
 /* -----------------------------------
  *
- * Window
+ * Global
  *
  * -------------------------------- */
 
 declare global {
 
+   const __API__: string;
+
    interface Window {
 
-      __vcconf__: IConfig;
-      __CDN__: string;
+      __config: IConfig;
 
    }
 

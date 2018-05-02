@@ -13,16 +13,8 @@ module.exports = {
       styles: 'style.css'
    },
 
-   csproj: {
-      name: 'IDL.Web.Vc.csproj',
-      xpath: '/xmlns:Project/xmlns:ItemGroup[xmlns:Content]',
-      xmlns: 'http://schemas.microsoft.com/developer/msbuild/2003',
-      element: 'Content',
-      attribute: 'Include',
-      dist: 'Content\\dist\\'
-   },
-
    path: {
+      api: 'https://api.gb.v3.idldev.net',
       cdn: '/subdir/dist/',
       root: './',
       dist: './dist/',
