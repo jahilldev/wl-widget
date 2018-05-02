@@ -23,6 +23,7 @@ module.exports = {
    },
 
    path: {
+      cdn: '/subdir/dist/',
       root: './',
       dist: './dist/',
       src: './src/',

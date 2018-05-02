@@ -23,6 +23,7 @@ const RELEASE = process.argv.includes('--release');
 
 const GLOBALS = {
    'process.env.NODE_ENV': !RELEASE ? '"development"' : '"production"',
+   'window.__CDN__': `'${config.path.cdn}'`,
    __DEV__: DEBUG,
  };
 
@@ -105,11 +106,11 @@ module.exports = {
 
       new webpack.DefinePlugin({ 
          ...GLOBALS, 
-         'process.env.BROWSER': true 
+         'process.env.BROWSER': true
       }),
 
       new PublicPathPlugin({
-         runtimePublicPath: 'window.__vcconf__.cdn'
+         runtimePublicPath: 'window.__CDN__'
       }),
 
       new webpack.optimize.OccurrenceOrderPlugin(true),

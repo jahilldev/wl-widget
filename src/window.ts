@@ -12,6 +12,7 @@ declare global {
    interface Window {
 
       __vcconf__: IConfig;
+      __CDN__: string;
 
    }
 

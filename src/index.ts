@@ -29,4 +29,6 @@ register('global.config', window.__vcconf__);
  *
  * -------------------------------- */
 
+console.log(window.__CDN__);
+
 bootstrap();

@@ -1,4 +1,5 @@
 import Preact, { Component } from 'preact';
+import { Link } from 'preact-router';
 import { connect } from 'preact-redux';
 import { inject } from '../../core/dependency';
 import { IConfig } from '../../config';
@@ -13,15 +14,6 @@ import * as utils from '../../utility';
  * -------------------------------- */
 
 const style = require('./scss/home');
-
-
-/* -----------------------------------
- *
- * Components
- *
- * -------------------------------- */
-
-import { Link } from '../../components/link';
 
 
 /* -----------------------------------
@@ -44,7 +36,7 @@ class Home extends Component<{}, {}> {
             <h1 className={style.title}>
                Lite Label: Home
             </h1>
-            <Link href="asos-vouchers">Asos</Link>
+            <Link href="/asos-vouchers">Asos</Link>
          </div>
       );
 

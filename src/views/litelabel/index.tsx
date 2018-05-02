@@ -1,4 +1,6 @@
 import Preact, { Component } from 'preact';
+import { Router, Route } from 'preact-router';
+import { createHashHistory } from 'history';
 import { connect } from 'preact-redux';
 import { inject } from '../../core/dependency';
 import { IConfig } from '../../config';
@@ -24,15 +26,6 @@ const style = require('./scss/index');
 interface IProps {
    dispatch?: any;
 }
-
-
-/* -----------------------------------
- *
- * Components
- *
- * -------------------------------- */
-
-import { Router } from '../../components';
 
 
 /* -----------------------------------
@@ -77,9 +70,15 @@ class LiteLabel extends Component<IProps, {}> {
    public render() {
 
       return (
-         <Router>
-            <Home path={utils.route('/')} />
-            <Merchant path={utils.route('/:slug')} />
+         <Router history={createHashHistory()}>
+            <Route
+               path="/"
+               component={Home}
+            />
+            <Route
+               path="/:slug"
+               component={Merchant}
+            />
          </Router>
       );
 
