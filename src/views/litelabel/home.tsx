@@ -18,6 +18,15 @@ const style = require('./scss/home');
 
 /* -----------------------------------
  *
+ * Containers
+ *
+ * -------------------------------- */
+
+import { TopOffers } from '../../containers/offers';
+
+
+/* -----------------------------------
+ *
  * Home
  *
  * -------------------------------- */
@@ -37,6 +46,13 @@ class Home extends Component<{}, {}> {
                Lite Label: Home
             </h1>
             <Link href="/asos-vouchers">Asos</Link>
+            <div className={style.topoffers}>
+               <TopOffers
+                  offerTypes="instore"
+                  countryCode="GB"
+                  pageSize={5}
+               />
+            </div>
          </div>
       );
 
