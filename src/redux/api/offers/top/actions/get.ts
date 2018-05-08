@@ -31,7 +31,9 @@ export function getTopOffers(props: IProps) {
 
    const { offerTypes, countryCode, pageSize } = props;
 
-   return (dispatch: (f: any) => void) => {
+   const url = `${ApiConfig.Host}offers/top/${countryCode}`;
+
+   return async (dispatch: (f: any) => void) => {
 
       dispatch(
          getRequest(
@@ -39,33 +41,25 @@ export function getTopOffers(props: IProps) {
          )
       );
 
-      // return loadAnnotations({
-      //    token
-      // }).then((response: any) => {
+      const result = await window.fetch(url);
+      const data = await result.json();
 
-      //    if (response.ok) {
+      if (!result.ok) {
 
-      //       return response.json().then(
-      //          (res: any) => dispatch(
-      //             getSuccess(res)
-      //          )
-      //       );
+         return dispatch(
+            getRequest(
+               Action.Failure
+            )
+         );
 
-      //    } else {
+      }
 
-      //       return response.json().then(
-      //          (res: any) => dispatch(
-      //             getFailure(res)
-      //          )
-      //       );
-
-      //    }
-
-      // }).catch(
-      //    (err: any) => dispatch(
-      //       getFailure(err)
-      //    )
-      // );
+      return dispatch(
+         getSuccess({
+            type: Action.Success,
+            data
+         })
+      );
 
    };
 

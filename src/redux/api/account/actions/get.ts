@@ -18,6 +18,8 @@ export function getAccount() {
 
    const { apiKey } = config;
 
+   const url = `${ApiConfig.Host}validate`;
+
    return async (dispatch: any) => {
 
       dispatch(
@@ -26,10 +28,7 @@ export function getAccount() {
          )
       );
 
-      const result = await window.fetch(
-         `${ApiConfig.Host}validate`
-      );
-
+      const result = await window.fetch(url);
       const data = await result.json();
 
       if (!result.ok) {
