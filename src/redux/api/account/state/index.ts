@@ -10,6 +10,7 @@ export interface IAccount {
    loading: boolean;
    valid: boolean;
    view: string;
+   error: boolean;
 }
 
 
@@ -22,5 +23,6 @@ export interface IAccount {
 export const Account: IAccount = {
    loading: false,
    valid: false,
-   view: null
+   view: null,
+   error: null
 };

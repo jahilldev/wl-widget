@@ -18,9 +18,11 @@ function reducer(state = TopOffers, action: IAction) {
 
       case Action.Request: {
 
-         const { data } = action.payload;
-
-         return {...state, ...data};
+         return update(state, {
+            loading: {
+               $set: true
+            }
+         });
 
       }
 

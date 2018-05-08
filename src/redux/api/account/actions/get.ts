@@ -1,5 +1,5 @@
 import { access } from '../../../../core/dependency';
-import { IAction, Action } from '../model';
+import { Action } from '../model';
 import { getRequest, getSuccess } from '../../shared';
 import { ApiConfig } from '../../config';
 import { IConfig } from 'config';

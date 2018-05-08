@@ -1,6 +1,8 @@
-// import { getRequest } from '../../../../shared/getRequest';
-// import { getSuccess } from '../../../../shared/getSuccess';
-// import { getFailure } from '../../../../shared/getFailure';
+import { access } from '../../../../../core/dependency';
+import { Action } from '../model';
+import { getRequest, getSuccess } from '../../../shared';
+import { ApiConfig } from '../../../config';
+import { IConfig } from 'config';
 
 
 /* -----------------------------------
@@ -24,13 +26,18 @@ export interface IProps {
 
 export function getTopOffers(props: IProps) {
 
+   const window: Window = access('global.window');
+   const config: IConfig = access('global.config');
+
    const { offerTypes, countryCode, pageSize } = props;
 
    return (dispatch: (f: any) => void) => {
 
-      // dispatch(
-      //    getRequest()
-      // );
+      dispatch(
+         getRequest(
+            Action.Request
+         )
+      );
 
       // return loadAnnotations({
       //    token
