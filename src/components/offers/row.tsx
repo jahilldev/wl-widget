@@ -26,11 +26,11 @@ import { Loading } from '../../components/utility';
 
 /* -----------------------------------
  *
- * Row
+ * OfferRow
  *
  * -------------------------------- */
 
-class Row extends Component<any, {}> {
+class OfferRow extends Component<any, {}> {
 
 
    public props: IProps;
@@ -63,8 +63,8 @@ class Row extends Component<any, {}> {
 
 /* -----------------------------------
  *
- * TopOffers
+ * Export
  *
  * -------------------------------- */
 
-export { Row };
+export { OfferRow };

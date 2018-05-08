@@ -10,7 +10,7 @@ import * as utils from '../../utility';
  *
  * -------------------------------- */
 
-const style = require('./scss/index');
+const style = require('./_scss/index');
 
 
 /* -----------------------------------

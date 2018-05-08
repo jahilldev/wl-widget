@@ -1,7 +1,7 @@
 import Preact, { Component } from 'preact';
 import { connect } from 'preact-redux';
 import { IStore } from '../../../../redux/store';
-import { IProps, Row } from '../../../../components/offers';
+import { IProps, OfferRow } from '../../../../components/offers';
 
 
 /* -----------------------------------
@@ -32,7 +32,7 @@ const mapState = (state: IStore, props: IProps) => ({
  *
  * -------------------------------- */
 
-const TopOffers = connect(mapState)(Row);
+const TopOffers = connect(mapState)(OfferRow);
 
 
 /* -----------------------------------
