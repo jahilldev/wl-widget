@@ -2,11 +2,9 @@ import Preact, { Component } from 'preact';
 import { Router, Route, RouterOnChangeArgs } from 'preact-router';
 import { createHashHistory } from 'history';
 import { connect } from 'preact-redux';
-import { inject } from '../../core/dependency';
-import { IConfig } from '../../config';
+import { Dispatch } from 'redux';
 import { IStore } from '../../redux/store';
-import { getTopOffers } from '../../redux/api/offers/top';
-import * as utils from '../../utility';
+import { routes } from '../../routes/litelabel';
 
 
 /* -----------------------------------
@@ -25,7 +23,7 @@ const style = require('./scss/index');
  * -------------------------------- */
 
 interface IProps {
-   dispatch?: any;
+   dispatch?: Dispatch<any, any>;
 }
 
 
@@ -61,10 +59,6 @@ import { Merchant } from './merchant';
 class LiteLabel extends Component<IProps, {}> {
 
 
-   @inject('global.config')
-   private config: IConfig;
-
-
    public props: IProps;
 
 
@@ -72,29 +66,11 @@ class LiteLabel extends Component<IProps, {}> {
 
       const { dispatch } = this.props;
 
-      switch (ev.url) {
+      const data = routes(ev.url);
 
-         case '/': {
-
-            Promise.all([
-               dispatch(
-                  getTopOffers({
-                     offerTypes: 'instore',
-                     countryCode: 'GB',
-                     pageSize: 5
-                  })
-               )
-            ]);
-
-            break;
-
-         }
-
-         default: {
-            // Nothing
-         }
-
-      }
+      data.map(
+         (a) => dispatch(a)
+      );
 
    }
 
