@@ -28,7 +28,12 @@ export function getAccount() {
          )
       );
 
-      const result = await window.fetch(url);
+      const result = await window.fetch(url, {
+         headers: {
+            'X-ApiKey': apiKey
+         }
+      });
+
       const data = await result.json();
 
       if (!result.ok) {

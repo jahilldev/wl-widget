@@ -30,6 +30,7 @@ export function getTopOffers(props: IProps) {
    const config: IConfig = access('global.config');
 
    const { offerTypes, countryCode, pageSize } = props;
+   const { apiKey } = config;
 
    const url = `${ApiConfig.Host}offers/top/${countryCode}`;
 
@@ -41,7 +42,12 @@ export function getTopOffers(props: IProps) {
          )
       );
 
-      const result = await window.fetch(url);
+      const result = await window.fetch(url, {
+         headers: {
+            'X-ApiKey': apiKey
+         }
+      });
+
       const data = await result.json();
 
       if (!result.ok) {
