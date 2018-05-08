@@ -27,6 +27,36 @@ function reducer(state = TopOffers, action: IAction) {
       }
 
 
+      case Action.Success: {
+
+         const { data } = action.payload;
+
+         return update(state, {
+            data: {
+               $push: data.Offers
+            },
+            loading: {
+               $set: false
+            }
+         });
+
+      }
+
+
+      case Action.Failure: {
+
+         return update(state, {
+            loading: {
+               $set: false
+            },
+            error: {
+               $set: true
+            }
+         });
+
+      }
+
+
       default: {
 
          return state;

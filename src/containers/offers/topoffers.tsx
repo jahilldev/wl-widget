@@ -65,6 +65,8 @@ class TopOffers extends Component<IProps, {}> {
 
       const { offers } = this.props;
 
+      console.log('TopOffers.render', offers);
+
       return (
          <div className={style.wrapper}>
             <h2 className={style.title}>
