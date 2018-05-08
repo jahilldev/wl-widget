@@ -1,10 +1,11 @@
 import Preact, { Component } from 'preact';
-import { Router, Route } from 'preact-router';
+import { Router, Route, RouterOnChangeArgs } from 'preact-router';
 import { createHashHistory } from 'history';
 import { connect } from 'preact-redux';
 import { inject } from '../../core/dependency';
 import { IConfig } from '../../config';
 import { IStore } from '../../redux/store';
+import { getTopOffers } from '../../redux/api/offers/top';
 import * as utils from '../../utility';
 
 
@@ -67,10 +68,44 @@ class LiteLabel extends Component<IProps, {}> {
    public props: IProps;
 
 
+   private onRouteChange = (ev: RouterOnChangeArgs) => {
+
+      const { dispatch } = this.props;
+
+      switch (ev.url) {
+
+         case '/': {
+
+            Promise.all([
+               dispatch(
+                  getTopOffers({
+                     offerTypes: 'instore',
+                     countryCode: 'GB',
+                     pageSize: 5
+                  })
+               )
+            ]);
+
+            break;
+
+         }
+
+         default: {
+            // Nothing
+         }
+
+      }
+
+   }
+
+
    public render() {
 
       return (
-         <Router history={createHashHistory()}>
+         <Router
+            history={createHashHistory()}
+            onChange={this.onRouteChange}
+         >
             <Route
                path="/"
                component={Home}

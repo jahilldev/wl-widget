@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import { reducer as account } from './account';
-import { reducer as offers } from './offers';
+import { reducer as top } from './top';
 
 
 /* -----------------------------------
@@ -11,8 +10,7 @@ import { reducer as offers } from './offers';
 
 const reducer = combineReducers({
 
-   account,
-   offers
+   top
 
 });
 

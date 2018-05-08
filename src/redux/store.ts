@@ -2,6 +2,7 @@ import { Dispatch, Middleware, createStore, applyMiddleware, compose } from 'red
 import thunk from 'redux-thunk';
 import { IAccount } from './api/account';
 import { reducers } from './reducers';
+import { ITopOffers } from './api/offers/top';
 
 
 /* -----------------------------------
@@ -14,6 +15,9 @@ export interface IStore {
    dispatch?: Dispatch<any, any>;
    api: {
       account: IAccount;
+      offers: {
+         top: ITopOffers
+      }
    };
 }
 

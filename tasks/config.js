@@ -15,7 +15,7 @@ module.exports = {
 
    path: {
       api: 'https://api.gb.v3.idldev.net',
-      cdn: '/subdir/dist/',
+      cdn: '/dist/',
       root: './',
       dist: './dist/',
       src: './src/',

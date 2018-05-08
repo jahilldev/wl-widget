@@ -1,7 +1,8 @@
 import Preact, { Component } from 'preact';
 import { Dispatch } from 'redux';
 import { connect } from 'preact-redux';
-import { IStore } from '../../redux/store';
+import { ITopOffers } from 'redux/api/offers/top';
+import { IStore } from 'redux/store';
 
 
 /* -----------------------------------
@@ -20,10 +21,8 @@ const style = require('./scss/topoffers');
  * -------------------------------- */
 
 interface IProps {
-   offerTypes: string;
-   countryCode: string;
-   pageSize: number;
    dispatch?: Dispatch<any, any>;
+   offers?: ITopOffers;
 }
 
 
@@ -38,6 +37,20 @@ import { Loading } from '../../components/utility';
 
 /* -----------------------------------
  *
+ * Connect
+ *
+ * -------------------------------- */
+
+@(connect(
+   (state: IStore) => ({
+      dispatch: state.dispatch,
+      offers: state.api.offers.top
+   })
+) as any)
+
+
+/* -----------------------------------
+ *
  * TopOffers
  *
  * -------------------------------- */
@@ -46,15 +59,6 @@ class TopOffers extends Component<IProps, {}> {
 
 
    public props: IProps;
-
-
-   public componentDidMount() {
-
-      const { dispatch } = this.props;
-
-      console.log('TopOffers.componentDidMount');
-
-   }
 
 
    public render() {
