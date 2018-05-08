@@ -1,6 +1,6 @@
 import update from 'immutability-helper';
 import { IAction } from './model';
-import { TopOffers } from './state';
+import { Offers } from './state';
 import { Action } from './model';
 
 
@@ -10,7 +10,7 @@ import { Action } from './model';
  *
  * -------------------------------- */
 
-function reducer(state = TopOffers, action: IAction) {
+function reducer(state = Offers, action: IAction) {
 
 
    switch (action.type) {

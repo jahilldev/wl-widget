@@ -1,0 +1,1 @@
+export { getOffers } from './get';

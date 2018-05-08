@@ -11,7 +11,7 @@ import * as utils from '../../utility';
  *
  * -------------------------------- */
 
-const style = require('./scss/merchant');
+const style = require('./_scss/merchant');
 
 
 /* -----------------------------------

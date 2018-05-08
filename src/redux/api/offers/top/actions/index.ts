@@ -1,1 +1,0 @@
-export { getTopOffers } from './get';

@@ -1,3 +1,4 @@
+import { IOffer } from './offer';
 
 
 /* -----------------------------------
@@ -6,9 +7,9 @@
  *
  * -------------------------------- */
 
-export interface ITopOffers {
+export interface IOffers {
    loading: boolean;
-   data: any[];
+   data: IOffer[];
    error: boolean;
    message: string;
 }
@@ -16,13 +17,22 @@ export interface ITopOffers {
 
 /* -----------------------------------
  *
- * Account
+ * Offers
  *
  * -------------------------------- */
 
-export const TopOffers: ITopOffers = {
+export const Offers: IOffers = {
    loading: false,
    data: [],
    error: false,
    message: null
 };
+
+
+/* -----------------------------------
+ *
+ * Export
+ *
+ * -------------------------------- */
+
+export * from './offer';

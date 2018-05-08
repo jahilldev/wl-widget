@@ -1,1 +1,4 @@
-export * from './reducers';
+export * from './model';
+export * from './reducer';
+export * from './actions';
+export * from './state';

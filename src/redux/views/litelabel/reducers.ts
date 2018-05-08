@@ -1,18 +1,16 @@
 import { combineReducers } from 'redux';
-import { reducer as api } from './api/reducers';
-import { reducer as views } from './views/reducers';
+import { reducer as home } from './home/reducers';
 
 
 /* -----------------------------------
  *
- * Reducers
+ * API Reducer
  *
  * -------------------------------- */
 
-const reducers = combineReducers({
+const reducer = combineReducers({
 
-   api,
-   views
+   home
 
 });
 
@@ -23,4 +21,4 @@ const reducers = combineReducers({
  *
  * -------------------------------- */
 
-export { reducers };
+export { reducer };

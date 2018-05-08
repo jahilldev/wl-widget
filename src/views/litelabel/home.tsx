@@ -9,7 +9,7 @@ import * as utils from '../../utility';
  *
  * -------------------------------- */
 
-const style = require('./scss/home');
+const style = require('./_scss/home');
 
 
 /* -----------------------------------
@@ -18,7 +18,7 @@ const style = require('./scss/home');
  *
  * -------------------------------- */
 
-import { TopOffers } from '../../containers/offers';
+import { TopOffers } from './containers/home/topoffers';
 
 
 /* -----------------------------------
@@ -39,7 +39,9 @@ class Home extends Component<{}, {}> {
             </h1>
             <Link href="/asos-vouchers">Asos</Link>
             <div className={style.topoffers}>
-               <TopOffers />
+               <TopOffers
+                  title="Top Offers"
+               />
             </div>
          </div>
       );

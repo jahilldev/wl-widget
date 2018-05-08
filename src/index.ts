@@ -1,5 +1,5 @@
-import { register } from './core/dependency';
 import { bootstrap } from './core/bootstrap';
+import { register } from './core/dependency';
 
 
 /* -----------------------------------
@@ -28,7 +28,5 @@ register('global.config', window.__config);
  * Bootstrap
  *
  * -------------------------------- */
-
-console.log(__API__);
 
 bootstrap();

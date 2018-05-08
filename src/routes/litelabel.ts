@@ -1,4 +1,5 @@
-import { getTopOffers } from '../redux/api/offers/top';
+import { Action as TopOfferAction } from '../redux/views/litelabel/home/topoffers';
+import { getOffers } from '../redux/api/offers';
 
 
 /* -----------------------------------
@@ -14,10 +15,14 @@ const routes = (path: string) => {
       case '/': {
 
          return [
-            getTopOffers({
-               offerTypes: 'instore',
-               countryCode: 'GB',
-               pageSize: 5
+            getOffers({
+               action: TopOfferAction,
+               type: 'top',
+               params: {
+                  OfferTypes: 'instore',
+                  CountryCode: 'GB',
+                  PageSize: 5
+               }
             })
          ];
 

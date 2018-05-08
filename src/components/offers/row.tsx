@@ -1,15 +1,5 @@
 import Preact, { Component } from 'preact';
-import { Dispatch } from 'redux';
 import { IOffers } from '../../redux/api/offers';
-
-
-/* -----------------------------------
- *
- * Style
- *
- * -------------------------------- */
-
-const style = require('./scss/topoffers');
 
 
 /* -----------------------------------
@@ -18,9 +8,10 @@ const style = require('./scss/topoffers');
  *
  * -------------------------------- */
 
-interface IProps {
-   dispatch?: Dispatch<any, any>;
+export interface IProps {
+   title: string;
    offers?: IOffers;
+   style?: any;
 }
 
 
@@ -35,11 +26,11 @@ import { Loading } from '../../components/utility';
 
 /* -----------------------------------
  *
- * TopOffers
+ * Row
  *
  * -------------------------------- */
 
-class TopOffers extends Component<IProps, {}> {
+class Row extends Component<any, {}> {
 
 
    public props: IProps;
@@ -47,12 +38,12 @@ class TopOffers extends Component<IProps, {}> {
 
    public render() {
 
-      const { offers } = this.props;
+      const { style, title, offers } = this.props;
 
       return (
          <div className={style.wrapper}>
             <h2 className={style.title}>
-               Top Offers
+               {title}
             </h2>
             <Loading
                active={offers.loading}
@@ -76,4 +67,4 @@ class TopOffers extends Component<IProps, {}> {
  *
  * -------------------------------- */
 
-export { TopOffers };
+export { Row };
