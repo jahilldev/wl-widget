@@ -22,6 +22,7 @@ export interface IProps {
  * -------------------------------- */
 
 import { Loading } from '../../components/utility';
+import { TileBlock } from '../tiles/block';
 
 
 /* -----------------------------------
@@ -39,8 +40,7 @@ class OfferRow extends Component<any, {}> {
    public render() {
 
       const { style, title, offers } = this.props;
-
-      console.log('OfferRow', offers);
+      const { data } = offers;
 
       return (
          <div className={style.wrapper}>
@@ -50,14 +50,14 @@ class OfferRow extends Component<any, {}> {
             <Loading
                active={offers.loading}
             >
-               {offers.data.map((item, index) => {
 
-                  const key = item.OfferId.toString();
+               {data.map((item, index) => {
 
                   return (
-                     <div key={key}>
-                        {item.OfferTitle}
-                     </div>
+                     <TileBlock
+                        key={item.OfferId}
+                        data={item}
+                     />
                   );
 
                })}

@@ -1,4 +1,16 @@
 import Preact, { Component } from 'preact';
+import { IOffer } from '../../redux/api/offers';
+
+
+/* -----------------------------------
+ *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps {
+   data: IOffer;
+}
 
 
 /* -----------------------------------
@@ -7,13 +19,17 @@ import Preact, { Component } from 'preact';
  *
  * -------------------------------- */
 
-class TileBlock extends Component<{}, {}> {
+class TileBlock extends Component<IProps, {}> {
 
 
    public render() {
 
+      const { data } = this.props;
+
       return (
-         <div>Tile: Block</div>
+         <div>
+            <h4>{data.OfferTitle}</h4>
+         </div>
       );
 
    }
