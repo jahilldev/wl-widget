@@ -66,9 +66,9 @@ class LiteLabel extends Component<IProps, {}> {
 
       const { dispatch } = this.props;
 
-      const data = routes(ev.url);
+      const list = routes(ev.url);
 
-      data.map(
+      list.map(
          (a) => dispatch(a)
       );
 
