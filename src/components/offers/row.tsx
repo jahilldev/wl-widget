@@ -40,6 +40,8 @@ class OfferRow extends Component<any, {}> {
 
       const { style, title, offers } = this.props;
 
+      console.log('OfferRow', offers);
+
       return (
          <div className={style.wrapper}>
             <h2 className={style.title}>
@@ -48,9 +50,17 @@ class OfferRow extends Component<any, {}> {
             <Loading
                active={offers.loading}
             >
-               <div>
-                  LOADED
-               </div>
+               {offers.data.map((item, index) => {
+
+                  const key = item.OfferId.toString();
+
+                  return (
+                     <div key={key}>
+                        {item.OfferTitle}
+                     </div>
+                  );
+
+               })}
             </Loading>
          </div>
       );

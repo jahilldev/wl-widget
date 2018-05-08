@@ -33,7 +33,7 @@ function reducer(state = Offers, action: IAction) {
 
          return update(state, {
             data: {
-               $push: data.Offers
+               $set: data.Offers
             },
             loading: {
                $set: false
