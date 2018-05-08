@@ -31,7 +31,7 @@ import { TileBlock } from '../tiles/block';
  *
  * -------------------------------- */
 
-class OfferRow extends Component<any, {}> {
+class OfferRow extends Component<IProps, {}> {
 
 
    public props: IProps;
@@ -50,7 +50,6 @@ class OfferRow extends Component<any, {}> {
             <Loading
                active={offers.loading}
             >
-
                {data.map((item, index) => {
 
                   return (

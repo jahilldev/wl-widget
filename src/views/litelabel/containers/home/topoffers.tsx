@@ -1,5 +1,5 @@
 import Preact, { Component } from 'preact';
-import { connect } from 'preact-redux';
+import { connect, MapStateToPropsParam } from 'preact-redux';
 import { IStore } from '../../../../redux/store';
 import { IProps, OfferRow } from '../../../../components/offers';
 
@@ -15,11 +15,20 @@ const style = require('./_scss/topoffers');
 
 /* -----------------------------------
  *
- * Connect
+ * IMap
  *
  * -------------------------------- */
 
-const mapState = (state: IStore, props: IProps) => ({
+type IMap = MapStateToPropsParam<IProps, IProps>;
+
+
+/* -----------------------------------
+ *
+ * MapState
+ *
+ * -------------------------------- */
+
+const mapState: IMap = (state: IStore, props: IProps) => ({
    title: props.title,
    offers: state.views.litelabel.home.topoffers,
    style
