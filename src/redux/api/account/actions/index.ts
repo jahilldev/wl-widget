@@ -1,1 +1,1 @@
-export { setAccount } from './set';
+export { getAccount } from './get';

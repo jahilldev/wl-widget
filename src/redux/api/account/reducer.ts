@@ -1,7 +1,7 @@
-// import update from 'immutability-helper';
+import update from 'immutability-helper';
 import { IAction } from './model';
 import { Account } from './state';
-import { SET } from './model';
+import { GET_REQUEST, GET_SUCCESS } from './model';
 
 
 /* -----------------------------------
@@ -16,11 +16,32 @@ function reducer(state = Account, action: IAction) {
    switch (action.type) {
 
 
-      case SET: {
+      case GET_REQUEST: {
+
+         return update(state, {
+            loading: {
+               $set: true
+            }
+         });
+
+      }
+
+
+      case GET_SUCCESS: {
 
          const { data } = action.payload;
 
-         return {...state, ...data};
+         return update(state, {
+            valid: {
+               $set: data.valid
+            },
+            view: {
+               $set: data.view
+            },
+            loading: {
+               $set: false
+            }
+         });
 
       }
 

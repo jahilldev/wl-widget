@@ -1,20 +1,16 @@
 import { IAction } from '../model';
-import { SET } from '../model';
 
 
 /* -----------------------------------
  *
- * Set
+ * Get Request
  *
  * -------------------------------- */
 
-export function setAccount(data: any): IAction {
+export function getRequest(type: string): IAction {
 
    return {
-      type: SET,
-      payload: {
-         data
-      }
+      type
    };
 
 }

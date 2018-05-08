@@ -3,7 +3,17 @@ import { Provider } from 'preact-redux';
 import { Store } from 'redux';
 import { IConfig } from '../config';
 import { IStore, createStore } from '../redux/store';
+import { getAccount } from '../redux/api';
 import { Views } from '../views';
+
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import { InvalidKey } from '../components/utility';
 
 
 /* -----------------------------------
@@ -29,8 +39,16 @@ class Application {
 
    public async validate() {
 
-      // call api endpoint and
-      // then dispatch redux action
+      const { apiKey } = this.config;
+      const { dispatch } = this.store;
+
+      // call api endpoint, validate
+      // client api key then dispatch
+      // redux action
+
+      await dispatch(
+         getAccount()
+      );
 
    }
 

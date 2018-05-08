@@ -7,6 +7,8 @@
  * -------------------------------- */
 
 export interface IAccount {
+   loading: boolean;
+   valid: boolean;
    view: string;
 }
 
@@ -18,6 +20,7 @@ export interface IAccount {
  * -------------------------------- */
 
 export const Account: IAccount = {
-   view: 'LiteLabel' // TEST ONLY
-   // view: null
+   loading: false,
+   valid: false,
+   view: null
 };
