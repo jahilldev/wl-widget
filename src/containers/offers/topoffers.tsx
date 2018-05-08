@@ -63,13 +63,15 @@ class TopOffers extends Component<IProps, {}> {
 
    public render() {
 
+      const { offers } = this.props;
+
       return (
          <div className={style.wrapper}>
             <h2 className={style.title}>
                Top Offers
             </h2>
             <Loading
-               active={false}
+               active={offers.loading}
             >
                <div>
                   LOADED

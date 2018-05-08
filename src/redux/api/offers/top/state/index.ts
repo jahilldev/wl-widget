@@ -10,7 +10,7 @@ export interface ITopOffers {
    loading: boolean;
    data: any[];
    error: boolean;
-   message: any;
+   message: string;
 }
 
 
