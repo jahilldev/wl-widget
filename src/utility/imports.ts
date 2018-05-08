@@ -27,7 +27,7 @@ const imports = async <T>(list: IList<T>, key?: string) => {
 
    }
 
-   const array = keys.map((k: string) => list[k]);
+   const array = keys.map((k: string) => list[k]());
    const load = await Promise.all(array);
 
    const result = load.reduce(
