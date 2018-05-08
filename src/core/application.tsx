@@ -1,19 +1,9 @@
 import Preact from 'preact';
 import { Provider } from 'preact-redux';
 import { Store } from 'redux';
-import { IConfig } from '../config';
 import { IStore, createStore } from '../redux/store';
 import { getAccount } from '../redux/api';
 import { Views } from '../views';
-
-
-/* -----------------------------------
- *
- * Components
- *
- * -------------------------------- */
-
-import { InvalidKey } from '../components/utility';
 
 
 /* -----------------------------------
@@ -25,13 +15,11 @@ import { InvalidKey } from '../components/utility';
 class Application {
 
 
-   private config: IConfig;
    private store: Store;
 
 
-   public constructor(config: IConfig) {
+   public constructor() {
 
-      this.config = config;
       this.store = createStore();
 
    }
@@ -39,7 +27,6 @@ class Application {
 
    public async validate() {
 
-      const { apiKey } = this.config;
       const { dispatch } = this.store;
 
       // call api endpoint, validate

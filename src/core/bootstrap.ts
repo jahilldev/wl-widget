@@ -17,7 +17,7 @@ const bootstrap = async () => {
 
    const root = document.getElementById(config.root || 'root');
 
-   const app = new Application(config);
+   const app = new Application();
 
    await app.validate();
 

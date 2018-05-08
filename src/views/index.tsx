@@ -30,6 +30,15 @@ interface IState {
 
 /* -----------------------------------
  *
+ * Components
+ *
+ * -------------------------------- */
+
+import { InvalidKey } from '../components/utility';
+
+
+/* -----------------------------------
+ *
  * Connect
  *
  * -------------------------------- */
@@ -54,7 +63,7 @@ class Views extends Component<IProps, IState> {
 
 
    public state: IState = {
-      View: null
+      View: undefined
    };
 
 
@@ -74,15 +83,20 @@ class Views extends Component<IProps, IState> {
 
    public render() {
 
+      const { account } = this.props;
       const { View } = this.state;
 
-      if (View) {
+      if (!account.valid) {
 
          return (
-            <View />
+            <InvalidKey />
          );
 
       }
+
+      return (
+         <View />
+      );
 
    }
 
