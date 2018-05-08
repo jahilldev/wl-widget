@@ -1,7 +1,7 @@
-// import update from 'immutability-helper';
+import update from 'immutability-helper';
 import { IAction } from './model';
 import { TopOffers } from './state';
-import { SET_DATA } from './model';
+import { Action } from './model';
 
 
 /* -----------------------------------
@@ -16,7 +16,7 @@ function reducer(state = TopOffers, action: IAction) {
    switch (action.type) {
 
 
-      case SET_DATA: {
+      case Action.Request: {
 
          const { data } = action.payload;
 

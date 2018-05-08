@@ -6,9 +6,11 @@
  *
  * -------------------------------- */
 
-export const GET_REQUEST: string = 'API/ACCOUNT/GET_REQUEST';
-export const GET_SUCCESS: string = 'API/ACCOUNT/GET_SUCCESS';
-export const GET_FAILURE: string = 'API/ACCOUNT/GET_FAILURE';
+export enum Action {
+   Request = 'API/ACCOUNT/REQUEST',
+   Success = 'API/ACCOUNT/SUCCESS',
+   Failure = 'API/ACCOUNT/FAILURE'
+}
 
 
 /* -----------------------------------

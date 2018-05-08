@@ -2,13 +2,15 @@
 
 /* -----------------------------------
  *
- * Methods
+ * Action
  *
  * -------------------------------- */
 
-export const GET_REQUEST: string = 'api/offers/top/GET_REQUEST';
-export const GET_SUCCESS: string = 'api/offers/top/GET_SUCCESS';
-export const SET_DATA: string = 'api/offers/top/SET_DATA';
+export enum Action {
+   Request = 'api/offers/top/request',
+   Success = 'api/offers/top/success',
+   Failure = 'api/offers/top/failure'
+}
 
 
 /* -----------------------------------

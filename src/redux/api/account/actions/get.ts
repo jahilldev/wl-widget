@@ -1,5 +1,5 @@
 import { access } from '../../../../core/dependency';
-import { IAction, GET_REQUEST, GET_SUCCESS, GET_FAILURE } from '../model';
+import { IAction, Action } from '../model';
 import { getRequest, getSuccess } from '../../shared';
 import { ApiConfig } from '../../config';
 import { IConfig } from 'config';
@@ -22,7 +22,7 @@ export function getAccount() {
 
       dispatch(
          getRequest(
-            GET_REQUEST
+            Action.Request
          )
       );
 
@@ -36,7 +36,7 @@ export function getAccount() {
 
          return dispatch(
             getRequest(
-               GET_FAILURE
+               Action.Failure
             )
          );
 
@@ -44,7 +44,7 @@ export function getAccount() {
 
       return dispatch(
          getSuccess({
-            type: GET_SUCCESS,
+            type: Action.Success,
             data
          })
       );
