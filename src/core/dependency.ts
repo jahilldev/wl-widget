@@ -71,9 +71,7 @@ function injectProperty(...keys: string[]) {
    return (target: any, key: string) => {
 
       Object.defineProperty(target, key, {
-         get: () => {
-            return Dependency.getRegistered(keys[0]);
-         }
+         get: () => Dependency.getRegistered(keys[0])
       });
 
    };
