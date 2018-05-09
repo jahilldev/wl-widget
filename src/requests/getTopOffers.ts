@@ -12,6 +12,8 @@ import * as utils from '../utility';
 
 interface IProps {
    [index: string]: any;
+   CountryCode: string;
+   OfferTypes: string;
 }
 
 
@@ -27,9 +29,11 @@ const getTopOffers = async (props: IProps) => {
    const config: IConfig = access('global.config');
 
    const { apiKey } = config;
-   const host = ApiConfig.Host;
+   const { CountryCode } = props;
 
-   const url = `${host}offers/top/`;
+   delete props.CountryCode;
+
+   const url = `${ApiConfig.Host}offers/top/${CountryCode}/`;
    const query = utils.params(url, props);
 
    const result = await window.fetch(query, {

@@ -15,6 +15,8 @@ export interface IProps {
    action: any;
    params: {
       [index: string]: any;
+      CountryCode: string;
+      OfferTypes: string;
    };
 }
 

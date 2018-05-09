@@ -18,7 +18,7 @@ const routes = (path: string) => {
             getTopOffers({
                action: TopOfferAction,
                params: {
-                  OfferTypes: 'instore',
+                  OfferTypes: '1',
                   CountryCode: 'GB',
                   PageSize: 5
                }
