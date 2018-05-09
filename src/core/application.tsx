@@ -54,9 +54,8 @@ class Application {
 
       const { document, config } = this;
 
-      const root = document.getElementById(
-         config.root || 'root'
-      );
+      const query = config.root || 'root';
+      const root = document.getElementById(query);
 
       this.root = root;
 
