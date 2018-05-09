@@ -39,9 +39,8 @@ class Home extends Component<{}, {}> {
             </h1>
             <Link href="/asos-vouchers">Asos</Link>
             <div className={style.topoffers}>
-               <TopOffers
-                  title="Top Offers"
-               />
+               <h2>Top Offers</h2>
+               <TopOffers />
             </div>
          </div>
       );

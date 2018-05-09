@@ -1,7 +1,7 @@
 import Preact, { Component } from 'preact';
 import { connect, MapStateToPropsParam } from 'preact-redux';
-import { IStore } from '../../../../redux/store';
-import { IProps, Default } from '../../../../components/offers';
+import { IStore } from '../../../redux/store';
+import { IProps, Default } from '../../../components/offers';
 
 
 /* -----------------------------------
@@ -20,7 +20,7 @@ type IMap = MapStateToPropsParam<IProps, IProps>;
  * -------------------------------- */
 
 const mapState: IMap = (state: IStore, props: IProps) => ({
-   offers: state.views.litelabel.home.topoffers
+   offers: state.api.offers
 });
 
 
@@ -30,7 +30,7 @@ const mapState: IMap = (state: IStore, props: IProps) => ({
  *
  * -------------------------------- */
 
-const TopOffers = connect(mapState)(Default);
+const Offers = connect(mapState)(Default);
 
 
 /* -----------------------------------
@@ -39,4 +39,4 @@ const TopOffers = connect(mapState)(Default);
  *
  * -------------------------------- */
 
-export { TopOffers };
+export { Offers };

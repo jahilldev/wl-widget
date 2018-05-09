@@ -1,5 +1,6 @@
 import Preact, { Component } from 'preact';
 import { connect } from 'preact-redux';
+import { Action, getTopOffers } from '../../redux/api/offers';
 import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
 
@@ -30,7 +31,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-import { TileBlock } from '../../components/tiles';
+import { Offers } from './containers/offers';
 
 
 /* -----------------------------------
@@ -58,11 +59,32 @@ class TopOffers extends Component<IProps, {}> {
    public props: IProps;
 
 
+   public componentDidMount() {
+
+      const { dispatch } = this.props;
+
+      dispatch(
+         getTopOffers({
+            action: Action,
+            params: {
+               OfferTypes: '1',
+               CountryCode: 'GB',
+               PageSize: 5
+            }
+         })
+      );
+
+   }
+
+
    public render() {
 
       return (
          <div className={style.container}>
-            <h1 className={style.title}>Top Offers</h1>
+            <h1 className={style.title}>
+               Top Offers
+            </h1>
+            <Offers />
          </div>
       );
 

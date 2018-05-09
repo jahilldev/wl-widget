@@ -7,7 +7,7 @@ import Preact, { Component } from 'preact';
  *
  * -------------------------------- */
 
-const style = require('./scss/loading');
+const style = require('./_scss/loading');
 
 
 /* -----------------------------------

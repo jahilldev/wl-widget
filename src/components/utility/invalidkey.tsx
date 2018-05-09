@@ -7,7 +7,7 @@ import Preact, { Component } from 'preact';
  *
  * -------------------------------- */
 
-const style = require('./scss/invalidkey');
+const style = require('./_scss/invalidkey');
 
 
 /* -----------------------------------
