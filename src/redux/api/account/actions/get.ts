@@ -1,24 +1,18 @@
 import { access } from '../../../../core/dependency';
 import { Action } from '../model';
 import { getRequest, getSuccess } from '../../shared';
+import * as reqs from '../../../../requests';
 import { ApiConfig } from '../../config';
 import { IConfig } from 'config';
 
 
 /* -----------------------------------
  *
- * Get
+ * Account
  *
  * -------------------------------- */
 
 export function getAccount() {
-
-   const window: Window = access('global.window');
-   const config: IConfig = access('global.config');
-
-   const { apiKey } = config;
-
-   const url = `${ApiConfig.Host}validate`;
 
    return async (dispatch: any) => {
 
@@ -28,12 +22,7 @@ export function getAccount() {
          )
       );
 
-      const result = await window.fetch(url, {
-         headers: {
-            'X-ApiKey': apiKey
-         }
-      });
-
+      const result = await reqs.getAccount();
       const data = await result.json();
 
       if (!result.ok) {

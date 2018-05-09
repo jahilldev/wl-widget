@@ -27,13 +27,7 @@ export interface IProps {
 
 export function getOffers(props: IProps) {
 
-   const window: Window = access('global.window');
-   const config: IConfig = access('global.config');
-
    const { action, params } = props;
-   const { apiKey } = config;
-
-   const url = `${ApiConfig.Host}offers/`;
 
    return async (dispatch: (f: any) => void) => {
 
