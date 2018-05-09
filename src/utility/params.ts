@@ -19,8 +19,6 @@ interface IList<T> {
 
 const params = <T>(url: string, list: IList<T>) => {
 
-   console.log('utils.params', url, list);
-
    const keys = Object.keys(list);
 
    const array = keys.map(

@@ -21,11 +21,11 @@ export interface IProps {
 
 /* -----------------------------------
  *
- * Offers
+ * Top Offers
  *
  * -------------------------------- */
 
-export function getOffers(props: IProps) {
+export function getTopOffers(props: IProps) {
 
    const window: Window = access('global.window');
    const config: IConfig = access('global.config');
@@ -43,7 +43,7 @@ export function getOffers(props: IProps) {
          )
       );
 
-      const result = await reqs.getOffers(params);
+      const result = await reqs.getTopOffers(params);
       const data = await result.json();
 
       if (!result.ok) {

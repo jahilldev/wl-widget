@@ -17,11 +17,11 @@ interface IProps {
 
 /* -----------------------------------
  *
- * Offers
+ * Top Offers
  *
  * -------------------------------- */
 
-const getOffers = async (props: IProps) => {
+const getTopOffers = async (props: IProps) => {
 
    const window: Window = access('global.window');
    const config: IConfig = access('global.config');
@@ -29,7 +29,7 @@ const getOffers = async (props: IProps) => {
    const { apiKey } = config;
    const host = ApiConfig.Host;
 
-   const url = `${host}offers/`;
+   const url = `${host}offers/top/`;
    const query = utils.params(url, props);
 
    const result = await window.fetch(query, {
@@ -49,4 +49,4 @@ const getOffers = async (props: IProps) => {
  *
  * -------------------------------- */
 
-export { getOffers };
+export { getTopOffers };
