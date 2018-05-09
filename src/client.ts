@@ -1,5 +1,5 @@
-import { bootstrap } from './core/bootstrap';
 import { register } from './core/dependency';
+import { bootstrap } from './core/bootstrap';
 
 
 /* -----------------------------------

@@ -1,6 +1,8 @@
-import Preact from 'preact';
+import Preact, { render } from 'preact';
 import { Provider } from 'preact-redux';
 import { Store } from 'redux';
+import { inject } from './dependency';
+import { IConfig } from '../config';
 import { IStore, createStore } from '../redux/store';
 import { getAccount } from '../redux/api';
 import { Views } from '../views';
@@ -15,7 +17,15 @@ import { Views } from '../views';
 class Application {
 
 
+   @inject('global.document')
+   private document: Document;
+
+   @inject('global.config')
+   private config: IConfig;
+
+
    private store: Store;
+   private root: HTMLElement;
 
 
    public constructor() {
@@ -40,28 +50,30 @@ class Application {
    }
 
 
-   public dispatch() {
+   public container() {
 
-      const { store } = this;
+      const { document, config } = this;
 
-      const data: IStore = store.getState();
+      const root = document.getElementById(
+         config.root || 'root'
+      );
 
-      console.log('Application.dispatch:', data);
-
-      // store.dispatch(getEnvironments());
+      this.root = root;
 
    }
 
 
    public render() {
 
-      const { store } = this;
+      const { store, root } = this;
 
-      return (
+      const App = (
          <Provider store={store}>
             <Views />
          </Provider>
       );
+
+      render(App, root);
 
    }
 
