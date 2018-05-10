@@ -35,13 +35,15 @@ class TileBlock extends Component<IProps, {}> {
    public render() {
 
       const { data } = this.props;
-      const { MerchantSlug } = data.Merchant;
 
       return (
          <div className={style.wrapper}>
-            <Link href={`/${MerchantSlug}`}>
+            <Link href={`/${data.Merchant.MerchantSlug}`}>
                Asos
             </Link>
+            <p className={style.title}>
+               {data.OfferTitle}
+            </p>
          </div>
       );
 

@@ -8,6 +8,11 @@
  * -------------------------------- */
 
 .wrapper {
+   position: relative;
    display: block;
-   border: rem(1);
+   width: 100%;
+   border: rem(1) solid $colour-grey-light;
+   padding: rem(15);
+   border-radius: rem(3);
+   box-sizing: border-box;
 }

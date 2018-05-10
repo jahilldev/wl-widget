@@ -9,6 +9,8 @@
 
 .wrapper {
    display: block;
+   display: flex;
+   flex-wrap: wrap;
    font-size: 0;
    margin: 0 rem(-15);
 }
@@ -22,7 +24,10 @@
 
 .column {
    display: inline-block;
+   display: inline-flex;
    width: 25%;
+   vertical-align: top;
+   margin: 0 0 rem(30);
    padding: 0 rem(15);
    font-size: rem(15);
    box-sizing: border-box;

@@ -1,0 +1,34 @@
+
+
+/* -----------------------------------
+ *
+ * Container
+ *
+ * -------------------------------- */
+
+%container {
+
+   @include clear();
+
+   width: 100%;
+   margin: 0 auto;
+   padding: 0 rem(10);
+
+   @include breakpoint('sm') {
+      max-width: $screen-sm - 30;
+   }
+
+   @include breakpoint('md') {
+      padding: 0 rem(15);
+      max-width: $screen-md - 30;
+   }
+
+   @include breakpoint('lg') {
+      max-width: $screen-lg - 30;
+   }
+
+   @include breakpoint('xl') {
+      max-width: $screen-xl - 30;
+   }
+
+}
