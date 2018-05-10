@@ -4,6 +4,15 @@ import { IOffer } from '../../redux/api/offers';
 
 /* -----------------------------------
  *
+ * Style
+ *
+ * -------------------------------- */
+
+const style = require('./_scss/block');
+
+
+/* -----------------------------------
+ *
  * IProps
  *
  * -------------------------------- */
@@ -27,7 +36,7 @@ class TileBlock extends Component<IProps, {}> {
       const { data } = this.props;
 
       return (
-         <div>
+         <div className={style.wrapper}>
             <h4>{data.OfferTitle}</h4>
          </div>
       );
