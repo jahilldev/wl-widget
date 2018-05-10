@@ -72,7 +72,7 @@ class Views extends Component<IProps, IState> {
       const { account } = this.props;
       const { theme, view } = account;
 
-      const list = manifest[theme];
+      const list = manifest[theme] || manifest.default;
       const result = await utils.imports(list, view);
 
       this.setState({
