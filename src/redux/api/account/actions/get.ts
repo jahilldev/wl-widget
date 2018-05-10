@@ -1,9 +1,6 @@
-import { access } from '../../../../core/dependency';
 import { Action } from '../model';
 import { getRequest, getSuccess } from '../../shared';
 import * as reqs from '../../../../requests';
-import { ApiConfig } from '../../config';
-import { IConfig } from 'config';
 
 
 /* -----------------------------------

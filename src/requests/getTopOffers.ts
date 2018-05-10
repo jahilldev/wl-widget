@@ -1,5 +1,4 @@
 import { access } from '../core/dependency';
-import { ApiConfig } from '../redux/api/config';
 import { IConfig } from '../config';
 import * as utils from '../utility';
 
@@ -33,7 +32,7 @@ const getTopOffers = async (props: IProps) => {
 
    delete props.CountryCode;
 
-   const url = `${ApiConfig.Host}offers/top/${CountryCode}/`;
+   const url = `${__API__}offers/top/${CountryCode}/`;
    const query = utils.params(url, props);
 
    const result = await window.fetch(query, {

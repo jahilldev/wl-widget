@@ -1,5 +1,4 @@
 import { access } from '../core/dependency';
-import { ApiConfig } from '../redux/api/config';
 import { IConfig } from '../config';
 import * as utils from '../utility';
 
@@ -27,9 +26,8 @@ const getOffers = async (props: IProps) => {
    const config: IConfig = access('global.config');
 
    const { apiKey } = config;
-   const host = ApiConfig.Host;
 
-   const url = `${host}offers/`;
+   const url = `${__API__}offers/`;
    const query = utils.params(url, props);
 
    const result = await window.fetch(query, {

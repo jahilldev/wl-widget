@@ -9,6 +9,7 @@ import { IConfig } from './config';
 
 declare global {
 
+   const __DEV__: string;
    const __API__: string;
 
    interface Window {
