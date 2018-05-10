@@ -58,7 +58,7 @@ import { TopOffers } from './containers/home';
 class Home extends Component<IProps, {}> {
 
 
-   public componentDidMount() {
+   public componentWillMount() {
 
       const { dispatch } = this.props;
 

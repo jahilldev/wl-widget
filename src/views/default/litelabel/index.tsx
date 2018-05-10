@@ -5,6 +5,15 @@ import { createHashHistory } from 'history';
 
 /* -----------------------------------
  *
+ * Style
+ *
+ * -------------------------------- */
+
+const style = require('./_scss/index');
+
+
+/* -----------------------------------
+ *
  * Views
  *
  * -------------------------------- */
@@ -25,18 +34,20 @@ class LiteLabel extends Component<{}, {}> {
    public render() {
 
       return (
-         <Router
-            history={createHashHistory()}
-         >
-            <Route
-               path="/"
-               component={Home}
-            />
-            <Route
-               path="/:slug"
-               component={Merchant}
-            />
-         </Router>
+         <div className={style.wrapper}>
+            <Router
+               history={createHashHistory()}
+            >
+               <Route
+                  path="/"
+                  component={Home}
+               />
+               <Route
+                  path="/:slug"
+                  component={Merchant}
+               />
+            </Router>
+         </div>
       );
 
    }

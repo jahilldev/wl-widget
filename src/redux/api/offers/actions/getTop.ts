@@ -1,3 +1,4 @@
+import { Dispatch } from 'redux';
 import { getRequest, getSuccess } from '../../shared';
 import * as reqs from '../../../../requests';
 
@@ -28,7 +29,7 @@ export function getTopOffers(props: IProps) {
 
    const { action, params } = props;
 
-   return async (dispatch: (f: any) => void) => {
+   return async (dispatch: Dispatch<any, any>) => {
 
       dispatch(
          getRequest(
