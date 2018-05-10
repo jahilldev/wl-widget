@@ -16,3 +16,28 @@
    border-radius: rem(3);
    box-sizing: border-box;
 }
+
+
+/* -----------------------------------
+ *
+ * Logo
+ *
+ * -------------------------------- */
+
+.logo {
+   display: block;
+   text-align: center;
+   margin: 0 0 rem(15);
+}
+
+
+/* -----------------------------------
+ *
+ * Image
+ *
+ * -------------------------------- */
+
+.image {
+   display: inline-block;
+   max-width: 100%;
+}
