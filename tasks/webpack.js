@@ -90,7 +90,14 @@ module.exports = {
                   loader: 'css-loader?modules&localIdentName=[local]_[hash:base64:6]'
                },
                {
-                  loader: 'sass-loader?sourceMap'
+                  loader: 'sass-loader?sourceMap',
+                  options: {
+                     data: '@import "./base";',
+                     outputStyle: 'compressed',
+                     includePaths: [
+                        config.path.style
+                     ]
+                  }
                }
             ]
          }

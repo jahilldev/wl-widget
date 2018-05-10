@@ -19,7 +19,7 @@ module.exports = {
       root: './',
       dist: './dist/',
       src: './src/',
-      style: './src/style/client/'
+      style: './src/style/'
    },
 
    scss: {

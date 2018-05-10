@@ -1,4 +1,5 @@
 import Preact, { Component } from 'preact';
+import { Link } from 'preact-router';
 import { IOffer } from '../../redux/api/offers';
 
 
@@ -34,10 +35,13 @@ class TileBlock extends Component<IProps, {}> {
    public render() {
 
       const { data } = this.props;
+      const { MerchantSlug } = data.Merchant;
 
       return (
          <div className={style.wrapper}>
-            <h4>{data.OfferTitle}</h4>
+            <Link href={`/${MerchantSlug}`}>
+               Asos
+            </Link>
          </div>
       );
 

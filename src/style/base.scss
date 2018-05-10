@@ -1,13 +1,10 @@
-@import './base';
 
 
 /* -----------------------------------
  *
- * Wrapper
+ * Framework
  *
  * -------------------------------- */
 
-.wrapper {
-   display: block;
-   border: rem(1);
-}
+@import './variables/base';
+@import './functions/base';

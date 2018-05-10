@@ -1,13 +1,8 @@
-@import './base';
-
 
 /* -----------------------------------
  *
- * Wrapper
+ * Functions
  *
  * -------------------------------- */
 
-.wrapper {
-   display: block;
-   border: rem(1);
-}
+@import './rem';
