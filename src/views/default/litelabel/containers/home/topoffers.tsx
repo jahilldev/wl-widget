@@ -30,7 +30,7 @@ const mapState: IMap = (state: IStore, props: IProps) => ({
  *
  * -------------------------------- */
 
-const TopOffers = connect(mapState)(Default);
+const TopOffers = connect(mapState)(Default as any);
 
 
 /* -----------------------------------
