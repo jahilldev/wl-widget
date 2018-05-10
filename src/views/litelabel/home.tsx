@@ -1,6 +1,10 @@
 import Preact, { Component } from 'preact';
 import { Link } from 'preact-router';
+import { connect } from 'preact-redux';
+import { Dispatch } from 'redux';
+import { IStore } from '../../redux/store';
 import * as utils from '../../utility';
+import { data } from '../../data/litelabel';
 
 
 /* -----------------------------------
@@ -14,6 +18,17 @@ const style = require('./_scss/home');
 
 /* -----------------------------------
  *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps {
+   dispatch?: Dispatch<any, any>;
+}
+
+
+/* -----------------------------------
+ *
  * Containers
  *
  * -------------------------------- */
@@ -23,11 +38,37 @@ import { TopOffers } from './containers/home';
 
 /* -----------------------------------
  *
+ * Connect
+ *
+ * -------------------------------- */
+
+@(connect(
+   (state: IStore) => ({
+      dispatch: state.dispatch
+   })
+) as any)
+
+
+/* -----------------------------------
+ *
  * Home
  *
  * -------------------------------- */
 
-class Home extends Component<{}, {}> {
+class Home extends Component<IProps, {}> {
+
+
+   public componentDidMount() {
+
+      const { dispatch } = this.props;
+
+      const list = data.home();
+
+      list.map(
+         (a) => dispatch(a)
+      );
+
+   }
 
 
    public render() {
