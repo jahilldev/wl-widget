@@ -4,6 +4,15 @@ import { IOffers } from '../../redux/api/offers';
 
 /* -----------------------------------
  *
+ * Style
+ *
+ * -------------------------------- */
+
+const style = require('./_scss/default');
+
+
+/* -----------------------------------
+ *
  * IProps
  *
  * -------------------------------- */
@@ -19,7 +28,6 @@ export interface IProps {
  *
  * -------------------------------- */
 
-import { Loading } from '../../components/utility';
 import { TileBlock } from '../tiles/block';
 
 
@@ -38,25 +46,20 @@ class Default extends Component<IProps, {}> {
    public render() {
 
       const { offers } = this.props;
-      const { data } = offers;
-
-      console.log('Default', offers);
 
       return (
-         <Loading
-            active={offers.loading}
-         >
-            {data.map((item, index) => {
-
-               return (
-                  <TileBlock
-                     key={item.OfferId}
-                     data={item}
-                  />
-               );
-
-            })}
-         </Loading>
+         <div className={style.wrapper}>
+            {offers.data.map(
+               (item, index) => (
+                  <div className={style.column}>
+                     <TileBlock
+                        key={item.OfferId}
+                        data={item}
+                     />
+                  </div>
+               )
+            )}
+         </div>
       );
 
    }

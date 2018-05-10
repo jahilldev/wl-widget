@@ -20,7 +20,7 @@ const routes = (path: string) => {
                params: {
                   OfferTypes: '1',
                   CountryCode: 'GB',
-                  PageSize: 5
+                  PageSize: 4
                }
             })
          ];
