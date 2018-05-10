@@ -18,7 +18,7 @@ const style = require('./_scss/home');
  *
  * -------------------------------- */
 
-import { TopOffers } from './containers/home/topoffers';
+import { TopOffers } from './containers/home';
 
 
 /* -----------------------------------
