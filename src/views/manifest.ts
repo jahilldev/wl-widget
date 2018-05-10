@@ -7,7 +7,9 @@
  * -------------------------------- */
 
 interface IManifest {
-   [index: string]: () => Promise<any>;
+   [index: string]: {
+      [index: string]: () => Promise<any>;
+   };
 }
 
 
@@ -18,8 +20,10 @@ interface IManifest {
  * -------------------------------- */
 
 const manifest: IManifest = {
-   LiteLabel: () => import('./litelabel'),
-   TopOffers: () => import('./topoffers')
+   default: {
+      LiteLabel: () => import('./default/litelabel'),
+      TopOffers: () => import('./default/topoffers')
+   }
 };
 
 

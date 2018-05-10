@@ -1,7 +1,7 @@
 import Preact, { Component } from 'preact';
 import { connect, MapStateToPropsParam } from 'preact-redux';
-import { IStore } from '../../../redux/store';
-import { IProps, Default } from '../../../components/offers';
+import { IStore } from '../../../../redux/store';
+import { IProps, Default } from '../../../../components/offers';
 
 
 /* -----------------------------------

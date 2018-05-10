@@ -2,6 +2,19 @@
 
 /* -----------------------------------
  *
+ * IParams
+ *
+ * -------------------------------- */
+
+export interface IParams {
+   OfferTypes: string;
+   CountryCode: string;
+   PageSize: number;
+}
+
+
+/* -----------------------------------
+ *
  * Action
  *
  * -------------------------------- */

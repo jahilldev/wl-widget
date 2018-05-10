@@ -1,8 +1,8 @@
 import Preact, { Component } from 'preact';
 import { connect } from 'preact-redux';
-import { Action, getTopOffers } from '../../redux/api/offers';
-import { IStore } from '../../redux/store';
-import * as utils from '../../utility';
+import { Action, getTopOffers } from '../../../redux/api/offers';
+import { IStore } from '../../../redux/store';
+import * as utils from '../../../utility';
 
 
 /* -----------------------------------

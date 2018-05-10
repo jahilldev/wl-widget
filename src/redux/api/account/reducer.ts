@@ -34,6 +34,9 @@ function reducer(state = Account, action: IAction) {
             valid: {
                $set: data.valid
             },
+            theme: {
+               $set: data.theme
+            },
             view: {
                $set: data.view
             },

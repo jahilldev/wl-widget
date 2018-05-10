@@ -70,9 +70,10 @@ class Views extends Component<IProps, IState> {
    public async componentWillMount() {
 
       const { account } = this.props;
-      const { view } = account;
+      const { theme, view } = account;
 
-      const result = await utils.imports(manifest, view);
+      const list = manifest[theme];
+      const result = await utils.imports(list, view);
 
       this.setState({
          View: result[view]
