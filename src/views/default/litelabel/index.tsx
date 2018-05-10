@@ -31,12 +31,20 @@ import { Merchant } from './merchant';
 class LiteLabel extends Component<{}, {}> {
 
 
+   private onRouteChange = (ev: any) => {
+
+      console.log(ev);
+
+   }
+
+
    public render() {
 
       return (
          <div className={style.wrapper}>
             <Router
                history={createHashHistory()}
+               onChange={this.onRouteChange}
             >
                <Route
                   path="/"
