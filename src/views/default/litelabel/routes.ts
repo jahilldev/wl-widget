@@ -23,10 +23,9 @@ const routes = [
       component: Home
    },
    {
-      async: false,
+      async: true,
       path: '/:slug',
-      component: Merchant
-      // component: () => import('./merchant').then((v) => v.Merchant)
+      component: () => import('./merchant').then((v) => v.Merchant)
    }
 ];
 

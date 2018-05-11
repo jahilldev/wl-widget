@@ -77,22 +77,17 @@ class Router extends Component<IProps, {}> {
 
                   const path = (config.route || '') + item.path;
 
-                  // return item.async ? (
-                  //    <AsyncRoute
-                  //       path={path}
-                  //       getComponent={item.component}
-                  //    />
-                  // ) : (
-                  //    <Route
-                  //       path={(config.route || '') + item.path}
-                  //       component={item.component}
-                  //    />
-                  // );
-
-                  return <Route
-                     path={(config.route || '') + item.path}
-                     component={item.component}
-                  />;
+                  return item.async ? (
+                     <AsyncRoute
+                        path={path}
+                        getComponent={item.component}
+                     />
+                  ) : (
+                     <Route
+                        path={(config.route || '') + item.path}
+                        component={item.component}
+                     />
+                  );
 
                }
             )}
