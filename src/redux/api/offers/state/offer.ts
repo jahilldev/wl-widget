@@ -1,8 +1,9 @@
+import { IMerchantMedia } from './merchant';
 
 
 /* -----------------------------------
  *
- * ITopOffer
+ * IOffer
  *
  * -------------------------------- */
 
@@ -17,5 +18,6 @@ export interface IOffer {
       MerchantId: number;
       MerchantName: string;
       MerchantSlug: string;
+      MerchantMedia: IMerchantMedia[];
    }
 }
