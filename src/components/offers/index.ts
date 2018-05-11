@@ -1,1 +1,2 @@
-export * from './default';
+export * from './grid';
+export * from './list';

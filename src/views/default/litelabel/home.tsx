@@ -3,7 +3,7 @@ import { connect } from 'preact-redux';
 import { Dispatch } from 'redux';
 import { IStore } from '../../../redux/store';
 import * as utils from '../../../utility';
-import { data } from './data';
+import { data } from './data/home';
 
 
 /* -----------------------------------
@@ -70,7 +70,7 @@ class Home extends Component<IProps, {}> {
 
       const { dispatch } = this.props;
 
-      const list = data.home();
+      const list = data();
 
       list.map(
          (a) => dispatch(a)

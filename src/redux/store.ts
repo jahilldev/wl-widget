@@ -22,6 +22,9 @@ export interface IStore {
          home: {
             topoffers: IOffers;
          };
+         merchant: {
+            offers: IOffers;
+         }
       };
    };
 }

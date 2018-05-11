@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import { reducer as home } from './home/reducers';
-import { reducer as merchant } from './merchant/reducers';
+import { reducer as offers } from './offers';
 
 
 /* -----------------------------------
@@ -11,8 +10,7 @@ import { reducer as merchant } from './merchant/reducers';
 
 const reducer = combineReducers({
 
-   home,
-   merchant
+   offers
 
 });
 

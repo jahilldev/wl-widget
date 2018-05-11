@@ -8,7 +8,7 @@ import { IOffers } from '../../redux/api/offers';
  *
  * -------------------------------- */
 
-const style = require('./_scss/default');
+const style = require('./_scss/grid');
 
 
 /* -----------------------------------
@@ -17,7 +17,7 @@ const style = require('./_scss/default');
  *
  * -------------------------------- */
 
-export interface IProps {
+interface IProps {
    offers?: IOffers;
 }
 
