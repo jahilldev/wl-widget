@@ -23,9 +23,9 @@ const data = (props?: IProps) => [
    getTopOffers({
       action: TopOfferAction,
       params: {
-         OfferTypes: '1',
+         OfferTypes: '1,4,6,7',
          CountryCode: 'GB',
-         PageSize: 4,
+         PageSize: 8,
          // TODO: custom
       }
    })

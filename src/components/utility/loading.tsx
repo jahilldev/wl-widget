@@ -31,10 +31,10 @@ interface IProps {
 const Loading = (props: IProps) => {
 
    const { active, children } = props;
-   const className = !active ? style.active : '';
+   const state = !active ? style.active : '';
 
    return (
-      <div className={`${style.wrapper} ${className}`}>
+      <div className={`${style.wrapper} ${state}`}>
          {!active && children}
       </div>
    );
