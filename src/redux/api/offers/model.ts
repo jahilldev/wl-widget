@@ -20,9 +20,9 @@ export interface IParams {
  * -------------------------------- */
 
 export enum Action {
-   Request = 'api/offers/top/request',
-   Success = 'api/offers/top/success',
-   Failure = 'api/offers/top/failure'
+   Request = 'api/offers/request',
+   Success = 'api/offers/success',
+   Failure = 'api/offers/failure'
 }
 
 
