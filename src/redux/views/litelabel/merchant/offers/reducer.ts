@@ -31,8 +31,6 @@ function reducer(state = Offers, action: IAction) {
 
          const { data } = action.payload;
 
-         console.log('DATA:', data);
-
          return update(state, {
             data: {
                $set: data.Offers

@@ -28,6 +28,7 @@ interface IProps {
  *
  * -------------------------------- */
 
+import { Loading } from '../utility';
 import { TileList } from '../tiles/list';
 
 
@@ -47,20 +48,22 @@ class List extends Component<IProps, {}> {
 
       const { offers } = this.props;
 
-      console.log('List.props.offers', offers);
-
       return (
          <div className={style.wrapper}>
-            {/* {offers.data.map(
-               (item, index) => (
-                  <div className={style.column}>
-                     <TileList
-                        key={item.OfferId}
-                        data={item}
-                     />
-                  </div>
-               )
-            )} */}
+            <Loading
+               active={offers.loading}
+            >
+               {offers.data.map(
+                  (item, index) => (
+                     <div className={style.column}>
+                        <TileList
+                           key={item.OfferId}
+                           data={item}
+                        />
+                     </div>
+                  )
+               )}
+            </Loading>
          </div>
       );
 

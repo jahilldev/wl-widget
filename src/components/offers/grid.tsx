@@ -28,6 +28,7 @@ interface IProps {
  *
  * -------------------------------- */
 
+import { Loading } from '../utility';
 import { TileBlock } from '../tiles/block';
 
 
@@ -49,16 +50,20 @@ class Default extends Component<IProps, {}> {
 
       return (
          <div className={style.wrapper}>
-            {offers.data.map(
-               (item, index) => (
-                  <div className={style.column}>
-                     <TileBlock
-                        key={item.OfferId}
-                        data={item}
-                     />
-                  </div>
-               )
-            )}
+            <Loading
+               active={offers.loading}
+            >
+               {offers.data.map(
+                  (item, index) => (
+                     <div className={style.column}>
+                        <TileBlock
+                           key={item.OfferId}
+                           data={item}
+                        />
+                     </div>
+                  )
+               )}
+            </Loading>
          </div>
       );
 
