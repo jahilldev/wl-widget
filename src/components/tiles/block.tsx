@@ -1,5 +1,4 @@
 import Preact, { Component } from 'preact';
-import { Link } from 'preact-router';
 import { IOffer } from '../../redux/api/offers';
 
 
@@ -29,7 +28,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-import { Picture } from '../utility';
+import { Link, Picture } from '../utility';
 
 
 /* -----------------------------------

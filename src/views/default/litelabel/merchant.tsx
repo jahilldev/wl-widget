@@ -1,5 +1,4 @@
 import Preact, { Component } from 'preact';
-import { Link } from 'preact-router';
 import { connect } from 'preact-redux';
 import { IStore } from '../../../redux/store';
 import * as utils from '../../../utility';
@@ -12,6 +11,15 @@ import * as utils from '../../../utility';
  * -------------------------------- */
 
 const style = require('./_scss/merchant');
+
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import { Link } from '../../../components/utility';
 
 
 /* -----------------------------------

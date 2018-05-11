@@ -1,5 +1,4 @@
 import Preact, { Component } from 'preact';
-import { Link } from 'preact-router';
 import { connect } from 'preact-redux';
 import { Dispatch } from 'redux';
 import { IStore } from '../../../redux/store';
@@ -34,6 +33,15 @@ interface IProps {
  * -------------------------------- */
 
 import { TopOffers } from './containers/home';
+
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import { Link } from '../../../components/utility';
 
 
 /* -----------------------------------

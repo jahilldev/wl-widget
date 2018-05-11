@@ -1,6 +1,5 @@
 import Preact, { Component } from 'preact';
-import { Router, Route, RouterOnChangeArgs } from 'preact-router';
-import { createHashHistory } from 'history';
+import { routes } from './routes';
 
 
 /* -----------------------------------
@@ -10,6 +9,15 @@ import { createHashHistory } from 'history';
  * -------------------------------- */
 
 const style = require('./_scss/index');
+
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import { Router } from '../../../components/utility';
 
 
 /* -----------------------------------
@@ -31,30 +39,13 @@ import { Merchant } from './merchant';
 class LiteLabel extends Component<{}, {}> {
 
 
-   private onRouteChange = (ev: any) => {
-
-      console.log(ev);
-
-   }
-
-
    public render() {
 
       return (
          <div className={style.wrapper}>
             <Router
-               history={createHashHistory()}
-               onChange={this.onRouteChange}
-            >
-               <Route
-                  path="/"
-                  component={Home}
-               />
-               <Route
-                  path="/:slug"
-                  component={Merchant}
-               />
-            </Router>
+               routes={routes}
+            />
          </div>
       );
 
