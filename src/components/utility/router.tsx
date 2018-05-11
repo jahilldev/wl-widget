@@ -1,8 +1,22 @@
 import Preact, { Component } from 'preact';
-import { RouteProps, Router as Browser, Route, route, RouterOnChangeArgs } from 'preact-router';
+import Browser, { RouteProps, Route, route, RouterOnChangeArgs } from 'preact-router';
+import AsyncRoute from 'preact-async-route';
 import { createBrowserHistory, createHashHistory } from 'history';
 import { inject } from '../../core/dependency';
 import { IConfig } from '../../config';
+
+
+/* -----------------------------------
+ *
+ * IRoute
+ *
+ * -------------------------------- */
+
+interface IRoute {
+   async: boolean;
+   path: string;
+   component: any;
+}
 
 
 /* -----------------------------------
@@ -12,7 +26,7 @@ import { IConfig } from '../../config';
  * -------------------------------- */
 
 interface IProps {
-   routes: Array<RouteProps<any>>;
+   routes: IRoute[];
 }
 
 
@@ -59,12 +73,28 @@ class Router extends Component<IProps, {}> {
             history={this.history()}
          >
             {routes.map(
-               (item) => (
-                  <Route
+               (item) => {
+
+                  const path = (config.route || '') + item.path;
+
+                  // return item.async ? (
+                  //    <AsyncRoute
+                  //       path={path}
+                  //       getComponent={item.component}
+                  //    />
+                  // ) : (
+                  //    <Route
+                  //       path={(config.route || '') + item.path}
+                  //       component={item.component}
+                  //    />
+                  // );
+
+                  return <Route
                      path={(config.route || '') + item.path}
                      component={item.component}
-                  />
-               )
+                  />;
+
+               }
             )}
          </Browser>
       );
