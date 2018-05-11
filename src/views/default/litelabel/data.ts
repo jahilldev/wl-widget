@@ -1,5 +1,5 @@
-import { Action as TopOfferAction } from '../../redux/views/litelabel/home/topoffers';
-import { IParams as IOfferParams, getTopOffers } from '../../redux/api/offers';
+import { Action as TopOfferAction } from '../../../redux/views/litelabel/home/topoffers';
+import { IParams as IOfferParams, getTopOffers } from '../../../redux/api/offers';
 
 
 /* -----------------------------------

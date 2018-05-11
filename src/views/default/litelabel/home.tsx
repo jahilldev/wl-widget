@@ -3,7 +3,7 @@ import { connect } from 'preact-redux';
 import { Dispatch } from 'redux';
 import { IStore } from '../../../redux/store';
 import * as utils from '../../../utility';
-import { data } from '../../../data/default/litelabel';
+import { data } from './data';
 
 
 /* -----------------------------------
