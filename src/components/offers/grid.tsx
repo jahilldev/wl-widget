@@ -52,6 +52,7 @@ class Default extends Component<IProps, {}> {
          <div className={style.wrapper}>
             <Loading
                active={offers.loading}
+               className={style.inner}
             >
                {offers.data.map(
                   (item, index) => (

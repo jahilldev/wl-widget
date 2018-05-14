@@ -25,7 +25,7 @@ const data = (props?: IProps) => [
       params: {
          OfferTypes: '1,4,6,7',
          CountryCode: 'GB',
-         PageSize: 8,
+         PageSize: 4,
          // TODO: custom
       }
    })

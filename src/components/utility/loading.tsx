@@ -18,6 +18,7 @@ const style = require('./_scss/loading');
 
 interface IProps {
    active: boolean;
+   className: string;
    children?: any;
 }
 
@@ -30,11 +31,11 @@ interface IProps {
 
 const Loading = (props: IProps) => {
 
-   const { active, children } = props;
+   const { active, className, children } = props;
    const state = !active ? style.active : '';
 
    return (
-      <div className={`${style.wrapper} ${state}`}>
+      <div className={`${style.wrapper} ${state} ${className}`}>
          {!active && children}
       </div>
    );
