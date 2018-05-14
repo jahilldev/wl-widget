@@ -8,9 +8,12 @@
 
 export interface IAccount {
    loading: boolean;
-   valid: boolean;
-   theme: string;
-   view: string;
+   data: {
+      valid: boolean;
+      domain: string;
+      theme: string;
+      view: string;
+   };
    error: boolean;
 }
 
@@ -23,8 +26,11 @@ export interface IAccount {
 
 export const Account: IAccount = {
    loading: false,
-   valid: false,
-   theme: 'default',
-   view: null,
+   data: {
+      valid: false,
+      domain: null,
+      theme: 'default',
+      view: null
+   },
    error: null
 };

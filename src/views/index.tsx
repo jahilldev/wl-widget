@@ -70,7 +70,7 @@ class Views extends Component<IProps, IState> {
    public async componentWillMount() {
 
       const { account } = this.props;
-      const { theme, view } = account;
+      const { theme, view } = account.data;
 
       const list = manifest[theme] || manifest.default;
       const result = await utils.imports(list, view);
@@ -87,7 +87,9 @@ class Views extends Component<IProps, IState> {
       const { account } = this.props;
       const { View } = this.state;
 
-      if (!account.valid) {
+      const { valid } = account.data;
+
+      if (!valid) {
 
          return (
             <InvalidKey />

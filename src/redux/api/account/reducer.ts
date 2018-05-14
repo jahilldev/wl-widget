@@ -31,14 +31,8 @@ function reducer(state = Account, action: IAction) {
          const { data } = action.payload;
 
          return update(state, {
-            valid: {
-               $set: data.valid
-            },
-            theme: {
-               $set: data.theme
-            },
-            view: {
-               $set: data.view
+            data: {
+               $set: data
             },
             loading: {
                $set: false
