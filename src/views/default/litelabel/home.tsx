@@ -86,7 +86,6 @@ class Home extends Component<IProps, {}> {
             <h1 className={style.title}>
                Lite Label: Home
             </h1>
-            <Link href="/asos-vouchers">Asos</Link>
             <div className={style.topoffers}>
                <h2>Top Offers</h2>
                <TopOffers />
